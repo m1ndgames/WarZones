@@ -17,9 +17,9 @@ class Mission
 		"ace_interaction",
 		"ace_map",
 		"ace_microdagr",
-		"ace_nametags",
 		"ace_weather",
-		"ace_winddeflection"
+		"ace_winddeflection",
+		"ace_medical"
 	};
 	addOnsAuto[]=
 	{
@@ -35,9 +35,9 @@ class Mission
 		"ace_interaction",
 		"ace_map",
 		"ace_microdagr",
-		"ace_nametags",
 		"ace_weather",
 		"ace_winddeflection",
+		"ace_medical",
 		"a3_map_altis"
 	};
 	randomSeed=15461198;
@@ -63,7 +63,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=89;
+		items=91;
 		class Item0
 		{
 			side="LOGIC";
@@ -1983,7 +1983,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={6003.2422,-183.5,30003.307};
+					position[]={6000,0,30000};
 					class args
 					{
 						items=9;
@@ -2059,7 +2059,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7000.8936,-183.5,29999.867};
+					position[]={7000,0,30000};
 					class args
 					{
 						items=2;
@@ -2093,7 +2093,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7998.5439,-183.50999,30003.307};
+					position[]={8000,0,30000};
 					class args
 					{
 						items=1;
@@ -2121,7 +2121,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={5999.8018,-183.5,29002.217};
+					position[]={6000,0,29000};
 					class args
 					{
 						items=1;
@@ -2149,7 +2149,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={6997.4526,-183.5,29002.217};
+					position[]={7000,0,29000};
 					class args
 					{
 						items=4;
@@ -2195,7 +2195,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7998.5439,-183.50999,28991.895};
+					position[]={8000,0,30000};
 					class args
 					{
 						items=1;
@@ -2223,53 +2223,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8999.6367,-183.50999,30003.309};
-					class args
-					{
-						items=4;
-						class Item0
-						{
-							value="5";
-							parentCls="ACE_ModuleNameTags";
-							typeName="PlayerNamesViewDistance";
-						};
-						class Item1
-						{
-							value="-1";
-							parentCls="ACE_ModuleNameTags";
-							typeName="showNamesForAI";
-						};
-						class Item2
-						{
-							value="-1";
-							parentCls="ACE_ModuleNameTags";
-							typeName="showVehicleCrewInfo";
-						};
-						class Item3
-						{
-							value="0";
-							parentCls="ACE_ModuleNameTags";
-							typeName="showCursorTagForVehicles";
-						};
-					};
-					id=86;
-					side="LOGIC";
-					vehicle="ACE_ModuleNameTags";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
-		class Item87
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={8999.6367,-183.50999,29002.219};
+					position[]={9000,0,30000};
 					class args
 					{
 						items=6;
@@ -2310,7 +2264,7 @@ class Mission
 							typeName="serverUpdateInterval";
 						};
 					};
-					id=87;
+					id=86;
 					side="LOGIC";
 					vehicle="ace_weather_ModuleSettings";
 					leader=1;
@@ -2319,7 +2273,7 @@ class Mission
 				};
 			};
 		};
-		class Item88
+		class Item87
 		{
 			side="LOGIC";
 			class Vehicles
@@ -2327,7 +2281,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={9997.2871,-183.50999,29996.43};
+					position[]={10000,0,30000};
 					class args
 					{
 						items=4;
@@ -2356,9 +2310,177 @@ class Mission
 							typeName="simulationRadius";
 						};
 					};
-					id=88;
+					id=87;
 					side="LOGIC";
 					vehicle="ace_winddeflection_ModuleSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item88
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7982.4683,-183.50999,29035.344};
+					class args
+					{
+						items=2;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Interval";
+						};
+						class Item1
+						{
+							value="1";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="HideAiGroups";
+						};
+					};
+					id=88;
+					side="LOGIC";
+					vehicle="ACE_ModuleBlueForceTracking";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item89
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6007.0771,0.0085536987,28062.842};
+					class args
+					{
+						items=12;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="level";
+						};
+						class Item1
+						{
+							value="0";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="medicSetting";
+						};
+						class Item2
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="allowLitterCreation";
+						};
+						class Item3
+						{
+							value="1800";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="litterCleanUpDelay";
+						};
+						class Item4
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="enableScreams";
+						};
+						class Item5
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="playerDamageThreshold";
+						};
+						class Item6
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="AIDamageThreshold";
+						};
+						class Item7
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="enableUnconsciousnessAI";
+						};
+						class Item8
+						{
+							value="0";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="preventInstaDeath";
+						};
+						class Item9
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="bleedingCoefficient";
+						};
+						class Item10
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="painCoefficient";
+						};
+						class Item11
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="keepLocalSettingsSynced";
+						};
+					};
+					id=89;
+					side="LOGIC";
+					vehicle="ACE_moduleMedicalSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item90
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7009.9678,0.017848687,28052.711};
+					class args
+					{
+						items=3;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_moduleReviveSettings";
+							typeName="enableRevive";
+						};
+						class Item1
+						{
+							value="120";
+							parentCls="ACE_moduleReviveSettings";
+							typeName="maxReviveTime";
+						};
+						class Item2
+						{
+							value="-1";
+							parentCls="ACE_moduleReviveSettings";
+							typeName="amountOfReviveLives";
+						};
+					};
+					id=90;
+					side="LOGIC";
+					vehicle="ACE_moduleReviveSettings";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;

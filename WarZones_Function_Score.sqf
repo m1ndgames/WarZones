@@ -1,3 +1,14 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Function_Score.sqf
+/  Description: This function handles player/side rating. It can read and add values.
+/
+/  It needs to be rewritten as the game code is not suited to track players progress.
+/
+*/
+
 // Player Score Usage
 //		[addplayer,player,100] call WarZones_fnc_score;
 //		_playerscore = [readplayer,player,nil] call WarZones_fnc_score;

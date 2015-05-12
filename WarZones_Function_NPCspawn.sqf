@@ -1,3 +1,13 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Function_NPCspawn.sqf
+/  Description: This function spawns the Ai dependent on the mission template.
+/               The _param is the selected mission parameter (Class: Skill)
+/
+*/
+
 // Fill array with all connected Players
 _allPlayers = [];
 {

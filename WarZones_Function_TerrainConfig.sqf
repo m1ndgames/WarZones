@@ -1,3 +1,12 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Function_TerrainConfig.sqf
+/  Description: This function sets the Terrain config according to the mission params.
+/
+*/
+
 _param = _this select 0;
 
 switch (_param) do {

@@ -1919,7 +1919,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={29998.422,-185.97,29989.904};
+					position[]={30000,0,30000};
 					class args
 					{
 						items=4;

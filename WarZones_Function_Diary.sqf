@@ -15,6 +15,7 @@ player createDiaryRecord["Diary",
 			- spunFIN for his Ai spawn Pack<br/>
 			- Rodeostar42 for his 3D Restriction Script<br/>
 			- KK's Blog for the Briefing-Skip function<br/>
+			- Lystic for the Cheat Detection<br/>
 		"
 	]
 ];

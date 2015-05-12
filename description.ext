@@ -1,0 +1,891 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: description.ext
+/  Description: The Description.ext file sets the overall mission attributes
+/
+*/
+
+class header {
+	gametype = SC;
+	minplayers = 1;
+	maxplayers = 64;
+	playerCountMultipleOf = 1;
+};
+
+author="m1ndfuck";
+onLoadName = "WarZones";
+onLoadMission = "WarZones - Altis";
+onLoadMissionTime = 0;
+overviewText = "WarZones - Altis";
+onLoadIntro = "Pick a Loadout";
+onLoadIntroTime = 1;
+briefing = 0;
+debriefing = 1;
+enableDebugConsole = 1;
+joinUnassigned = 1;
+showMap = 1;
+ShowGPS = 1;
+showCompass = 1;
+aiKills = 0;
+disabledAI = 1;
+corpseManagerMode = 2;
+corpseLimit = 15;
+corpseRemovalMinTime = 10;
+corpseRemovalMaxTime = 60;
+wreckManagerMode = 2;
+wreckLimit = 15;
+wreckRemovalMinTime = 10;
+wreckRemovalMaxTime = 60;
+forceRotorLibSimulation = 1;
+enableSaving = [false, false];
+saving = 0;
+allowFunctionsRecompile = 1;
+allowFunctionsLog = 1;
+minScore = 0;
+avgScore = 25000;
+maxScore = 50000;
+respawnButton = 1;
+respawn = 3;
+respawnOnStart = 1;
+respawnDelay = 10;
+respawnVehicleDelay = 300;
+respawnTemplatesWest[] = {"MenuInventory","Counter","Tickets","Wave","EndMission"};
+respawnTemplatesEast[] = {"MenuInventory","Counter","Tickets","Wave","EndMission"};
+disableChannels[]={2,3,6};
+
+// Define Mission Root
+__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15])
+
+class Params
+{
+	class Skill
+	{
+		title = "AI Skill";
+		value[] = {1,2,3};
+		texts[] = {"Easy","Medium","Hard"};
+		default = 2;
+		function = "WarZones_fnc_Skill";
+		isGlobal = 1;
+	};
+
+	class Time
+	{
+		title = "Time";
+		texts[] = {"Morning","Day","Evening","Night"};
+		value[] = {6,12,18,0};
+		default = 12;
+		function = "BIS_fnc_paramDaytime";
+ 		isGlobal = 1;
+	};
+
+	class ViewDistance
+	{
+		title = "View distance (in metres)";
+		value[] = {500,1000,1500,2000,2500};
+		default = 2000;
+		function = "WarZones_fnc_ViewDistance";
+		isGlobal = 1;
+	};
+
+	class TerrainConfig
+	{
+		title = "Terrain";
+		texts[] = {"Low","Standart","High","Very High","Ultra"};
+		value[] = {50,25,12.5,6.25,3.125};
+		default = 25;
+		function = "WarZones_fnc_TerrainConfig";
+		isGlobal = 1;
+	}
+
+	class SpotDistance
+	{
+		title = "Max Range for 3D Player Markers";
+		value[] = {250,500,750,1000};
+		default = 250;
+		isGlobal = 1;
+	};
+
+	class MapRange
+	{
+		title = "Max Range for 2D Player Markers on the Map";
+		value[] = {750,1000,1500,2500,5000,7500};
+		default = 2500;
+		isGlobal = 1;
+	};
+
+	class RestrictView
+	{
+		title = "Enable 3D View restriction?";
+		value[] = {"Yes","No"};
+		default = "Yes";
+		isGlobal = 1;
+	};
+
+	class Fatigue
+	{
+		title = "Disable Fatigue?";
+		value[] = {"Yes","No"};
+		default = "Yes";
+		isGlobal = 1;
+	};
+
+	class FriendlyFire
+	{
+		title = "Allow Friendly Fire?";
+		value[] = {"Yes","No"};
+		default = "Yes";
+		isGlobal = 1;
+	};
+};
+
+class CfgFunctions
+{
+	class WarZones
+	{
+		class Initialize
+		{
+			class BriefingSkip
+			{
+				preInit = 1;
+				file = "WarZones_Function_BriefingSkipper.sqf";
+			};
+		};
+
+
+		class Loops
+		{
+			class LoopGearCheck
+			{
+				file = "WarZones_Initialize_Server_Loop_GearCheck.sqf";
+			};
+
+			class LoopAiSpawn
+			{
+				file = "WarZones_Initialize_Server_Loop_AiSpawn.sqf";
+			};
+			class LoopCheckScore
+			{
+				file = "WarZones_Initialize_Server_Loop_CheckScore.sqf";
+			};
+			class CheckScore
+			{
+				file = "WarZones_Initialize_Server_CheckScore.sqf";
+			};
+		};
+
+		class MissionParameters
+		{
+			class Skill
+			{
+				file = "WarZones_Function_AiSkill.sqf";
+			};
+
+			class ViewDistance
+			{
+				file = "WarZones_Function_View_Distance.sqf";
+			};
+
+			class TerrainConfig
+			{
+				file = "WarZones_Function_TerrainConfig.sqf";
+			};
+		};
+
+
+		class DB
+		{
+			class DBCheckPlayer {
+				file = "WarZones_Function_DB_CheckPlayer.sqf";
+			};
+
+			class DBInit {
+				file = "WarZones_Function_DB_Init.sqf";
+			};
+
+			class DB {
+				file = "WarZones_Function_DB.sqf";
+			};
+		};
+
+
+		class Misc
+		{
+			class DrawUI
+			{
+				file = "WarZones_Function_UI.sqf";
+			};
+
+			class CreateSectors
+			{
+				file = "WarZones_Function_CreateSectors.sqf";
+			};
+
+			class Score {
+				file = "WarZones_Function_Score.sqf";
+			};
+
+			class CreateDiary
+			{
+				file = "WarZones_Function_Diary.sqf";
+			};
+
+			class Draw3D {
+				file = "WarZones_Map_Draw3D.sqf";
+			};
+
+			class DrawMap {
+				file = "WarZones_Map_DrawMap.sqf";
+			};
+
+			class Rank {
+				file = "WarZones_Function_Rank.sqf";
+			};
+
+			class Tickets {
+				file = "WarZones_Function_Tickets.sqf";
+			};
+
+			class Debug {
+				file = "WarZones_Function_Debug.sqf";
+			};
+
+			class GearCheck
+			{
+				file = "WarZones_Function_Gear.sqf";
+			};
+
+			class PilotCheck
+			{
+				file = "WarZones_Function_CheckPilot.sqf";
+			};
+
+			class NPCspawn
+			{
+				file = "WarZones_Function_NPCspawn.sqf";
+			};
+
+		};
+	};
+};
+
+#define true 1
+#define false 0
+
+class PointsUI {
+	idd = 100;                      // set to -1, because we don't require a unique ID
+	movingEnable = false;           // the dialog can be moved with the mouse (see "moving" below)
+	enableSimulation = true;      // freeze the game
+	controlsBackground[] = { };    // no background controls needed
+	objects[] = { };               // no objects needed
+	controls[] = { Points };  // our "Hello world" text as seen below:
+
+	class Points {
+		idc = -1;              // set to -1, unneeded
+		moving = 0;            // left click (and hold) this control to move the dialog
+		                       // (requires "movingEnabled" to be 1, see above)
+		type = CT_STATEBOX;      // constant
+		style = ST_LEFT;       // constant
+		text = "Hello world";
+		font = PuristaBold;
+		shadow = 1;
+		sizeEx = 0.023;
+
+		colorBackground[] = { 1, 1, 1, 0.0 };
+		colorText[] = { 0, 0, 0, 1 };
+
+		x = 0.8;
+		y = 0.1;
+		w = 0.2;
+		h = 0.05;
+	};
+};
+
+class cfgDebriefingSections
+{
+	class Points_Player
+	{
+		title = "Player Points";
+		variable = ["readplayer",player,nil] call WarZones_fnc_score;
+	};
+	class Points_NATO
+	{
+		title = "NATO Team Points";
+		variable = ["readside",blufor,nil] call WarZones_fnc_score;
+	};
+	class Points_CSAT
+	{
+		title = "CSAT Team Points";
+		variable = ["readside",opfor,nil] call WarZones_fnc_score;
+	};
+	class Tickets_NATO
+	{
+		title = "NATO Tickets left";
+		variable = ["read",blufor,nil] call WarZones_fnc_Tickets;
+	};
+	class Tickets_CSAT
+	{
+		title = "CSAT Tickets left";
+		variable = ["read",opfor,nil] call WarZones_fnc_Tickets;
+	};
+};
+
+class CfgUnitInsignia
+{
+	class Private
+	{
+		displayName = "Private";
+		author = "Bohemia Interactive";
+		texture = "pics\markers_3d\Private.paa";
+		textureVehicle = "\pics\markers_3d\private.paa";
+	};
+
+		class Corporal
+	{
+		displayName = "Corporal";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Corporal.paa";
+		textureVehicle = "\pics\markers_3d\Corporal.paa";
+	};
+
+		class Sergeant
+	{
+		displayName = "Sergeant";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Sergeant.paa";
+		textureVehicle = "\pics\markers_3d\Sergeant.paa";
+	};
+
+		class Lieutenant
+	{
+		displayName = "Lieutenant";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Lieutenant.paa";
+		textureVehicle = "\pics\markers_3d\Lieutenant.paa";
+	};
+
+		class Captain
+	{
+		displayName = "Captain";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Captain.paa";
+		textureVehicle = "\pics\markers_3d\Captain.paa";
+	};
+
+		class Major
+	{
+		displayName = "Major";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Major.paa";
+		textureVehicle = "\pics\markers_3d\Major.paa";
+	};
+
+		class Colonel
+	{
+		displayName = "Colonel";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\Colonel.paa";
+		textureVehicle = "\pics\markers_3d\Colonel.paa";
+	};
+
+		class General
+	{
+		displayName = "General";
+		author = "Bohemia Interactive";
+		texture = "\pics\markers_3d\General.paa";
+		textureVehicle = "\pics\markers_3d\General.paa";
+	};
+};
+
+/////////////////////////////////////////////////////////////////////
+// Load Unit Gear Templates
+
+class CfgRespawnInventory {
+	class Rifleman {
+		displayName = "Rifleman";
+		icon = pics\markers_3d\Private.paa;
+
+		weapons[] = {
+			Binocular,
+			arifle_MX_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			HandGrenade
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_Hamr,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+	};
+
+
+	class Grenadier {
+		displayName = "Grenadier";
+		icon = pics\markers_3d\Corporal.paa;
+
+		weapons[] = {
+			Binocular,
+			arifle_MX_GL_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			HandGrenade,
+			HandGrenade,
+			3Rnd_HE_Grenade_shell
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_ACO_grn,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack =  B_AssaultPack_rgr;
+	};
+
+	class Medic {
+		displayName = "Medic";
+		icon = pics\markers_3d\Corporal.paa;
+
+		weapons[] = {
+			Binocular,
+			SMG_02_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			30Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			Medikit
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_Holosight_smg,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack = B_AssaultPack_rgr;
+	};
+
+	class Autorifleman {
+		displayName = "Autorifleman";
+		icon = pics\markers_3d\Sergeant.paa;
+
+		weapons[] = {
+			Binocular,
+			LMG_Zafir_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			150Rnd_762x54_Box,
+			150Rnd_762x54_Box,
+			150Rnd_762x54_Box,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			HandGrenade
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_ACO_grn,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack = B_AssaultPack_rgr;
+	};
+
+	class ATSoldier {
+		displayName = "Anti Tank Soldier";
+		icon = pics\markers_3d\Sergeant.paa;
+
+		weapons[] = {
+			Laserdesignator,
+			arifle_MX_F,
+			hgun_P07_F,
+			launch_I_Titan_short_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			Titan_AP,
+			Titan_AT,
+			Titan_AT
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_ACO_grn,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack = B_Carryall_mcamo;
+	};
+	class AASoldier {
+		displayName = "Anti Air Soldier";
+		icon = pics\markers_3d\Sergeant.paa;
+
+		weapons[] = {
+			Laserdesignator,
+			arifle_MX_F,
+			hgun_P07_F,
+			launch_B_Titan_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			Titan_AA,
+			Titan_AA,
+			Titan_AA
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_ACO_grn,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack = B_Carryall_mcamo;
+	};
+
+	class Sapper {
+		displayName = "Sapper";
+		icon = pics\markers_3d\Lieutenant.paa;
+
+		weapons[] = {
+			Binocular,
+			arifle_MX_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			ToolKit,
+			ATMine_Range_Mag,
+			APERSMine_Range_Mag,
+			APERSMine_Range_Mag
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_ACO_grn,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack = B_AssaultPack_rgr;
+	};
+
+	class Sniper {
+		displayName = "Sniper";
+		icon = pics\markers_3d\Lieutenant.paa;
+
+		weapons[] = {
+			Rangefinder,
+			srifle_LRR_camo_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			7Rnd_408_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			optic_LRPS,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_FullGhillie_sard;
+		backpack = B_AssaultPack_rgr;
+	};
+
+	class Marksmen {
+		displayName = "Marksmen";
+		icon = pics\markers_3d\Captain.paa;
+
+		weapons[] = {
+			Rangefinder,
+			srifle_DMR_02_camo_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			10Rnd_338_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			};
+		linkedItems[] = {
+			V_TacVest_camo,
+			H_Shemag_olive_hs,
+			muzzle_snds_338_green,
+			acc_pointer_IR,
+			bipod_01_F_mtp,
+			optic_DMS,
+			muzzle_snds_L,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam_vest;
+		backpack = B_TacticalPack_mcamo;
+	};
+
+	class Recon {
+		displayName = "Recon";
+		icon = pics\markers_3d\Captain.paa;
+
+		weapons[] = {
+			Laserdesignator,
+			SMG_01_F
+		};
+		magazines[] = {
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			};
+		items[] = {
+			FirstAidKit,
+			};
+		linkedItems[] = {
+			V_TacVest_camo,
+			H_Bandanna_mcamo,
+			muzzle_snds_acp,
+			acc_pointer_IR,
+			optic_Holosight_smg,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam_vest;
+		backpack = B_TacticalPack_mcamo;
+	};
+
+	class Pilot {
+		displayName = "Pilot";
+		icon = pics\markers_3d\Major.paa;
+
+		weapons[] = {
+			SMG_01_F
+		};
+		magazines[] = {
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01,
+			30Rnd_45ACP_Mag_SMG_01
+			};
+		items[] = {
+			FirstAidKit,
+			};
+		linkedItems[] = {
+			H_PilotHelmetFighter_B,
+			optic_Holosight_smg,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_PilotCoveralls;
+		backpack = B_Parachute;
+	};
+
+	class Crewman {
+		displayName = "Crewman";
+		icon = pics\markers_3d\Major.paa;
+
+		weapons[] = {
+			Binocular,
+			arifle_MXC_F,
+			hgun_P07_F
+		};
+		magazines[] = {
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			30Rnd_65x39_caseless_mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag,
+			16Rnd_9x21_Mag
+			};
+		items[] = {
+			FirstAidKit,
+			HandGrenade,
+			HandGrenade
+			};
+		linkedItems[] = {
+			V_Chestrig_rgr,
+			H_HelmetB,
+			acc_pointer_IR,
+			optic_Arco,
+			NVGoggles,
+			G_Tactical_Clear,
+			ItemGPS,
+			ItemMap,
+			ItemCompass,
+			ItemWatch,
+			ItemRadio
+		};
+		uniformClass = U_B_CombatUniform_mcam;
+		backpack =  B_AssaultPack_rgr;
+	};
+};

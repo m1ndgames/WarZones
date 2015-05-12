@@ -1,0 +1,1035 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "description.ext",
+			"settings":
+			{
+				"buffer_size": 16508,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "init.sqf",
+			"settings":
+			{
+				"buffer_size": 1223,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "WarZones_Function_AiSkill.sqf",
+			"settings":
+			{
+				"buffer_size": 1591,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "WarZones_Function_BriefingSkipper.sqf",
+			"settings":
+			{
+				"buffer_size": 810,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "WarZones_Function_Diary.sqf",
+			"settings":
+			{
+				"buffer_size": 2266,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "WarZones_Function_Debug.sqf",
+			"settings":
+			{
+				"buffer_size": 356,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "WarZones_Function_Gear.sqf",
+			"settings":
+			{
+				"buffer_size": 3155,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 1408.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_DB_Init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_DB_CheckPlayer.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_DB.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_CreateSectors.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_CheckPilot.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/description.ext",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_Diary.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_UI.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/scripts/3rdView.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Server_Loop_AiSpawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Template_Sectors.hpp",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Client_Handlers.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Server.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Handler_Player_HandleDamage.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/scripts/noTeamKill.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Handler_MPKilled.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Server_Loop_GearCheck.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_Gear.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_notk.zip/noTeamKill.Intro/f/common/noTeamKill.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Template_Bases.hpp",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/AAFSupport.Altis/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/AAFSupport.Altis/description.ext",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/HeliPatrol.Altis/description.ext",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Handler_PlayerConnected.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Server_CheckScore.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Server_Loop_CheckScore.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Initialize_Client.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_Score.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Map_DrawMap.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Function_DB_Write.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/mpmissions/WarZones.Altis/WarZones_Handler_MPRespawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_Loop_GearCheck.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Client.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_PlayerConnected.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Map_Draw3D.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_MPKilled.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Client_Handlers.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/description.ext",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Map_DrawMap.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_MPRespawn.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.999/WarZones_Init_Server.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.279/init.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.095/WarZones_Init_Server.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.688/WarZones_Handler_Server_PlayerConnected.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.382/WarZones_Function_Loops_Server.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.589/WarZones_Function_SetupGame.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.310/WarZones_Handler_Server_PlayerConnected.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.392/WarZones_Function_DrawMap.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.908/WarZones_Function_Draw3D.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_NPCspawn.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Rar$DIa0.745/WarZones_Function_Client.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_CreateSectors.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DrawMap.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Tickets.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_Handlers.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_Loop_AiSpawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_PostInit.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis - Backup 2/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis - Backup/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis - Backup/WarZones_Init_Server.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_BriefingSkipper.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DB_CheckPlayer.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DB_Init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DB_Read.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DB_Write.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Diary.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_ViewRestriction.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_FriendlyFire.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Template_Sectors.hpp",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Fatigue.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Draw3D.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Gear.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_PlayerDisconnected.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_Player_HandleDamage.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_DB.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_CreateSectors.sqf",
+		"/C/Users/m1ndfuck/Desktop/@inidbi/config.cpp",
+		"/C/Users/m1ndfuck/Desktop/@inidbi/Addons/inidb/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_TeamSwitch.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_Loops.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_PreInit.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Server_PreStart.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Score.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Client_PostInit.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Client_PreInit.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Initialize_Client_PreStart.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_Server_PlayerConnected.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_Server_Respawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Sectors.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis - Backup/WarZones_Sectors.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/mission.sqm",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Init_Server.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_AiSkill.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Client.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Debug.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Loops_Server.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_SetupGame.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_TerrainConfig.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_View_Distance.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_MP_MPKilled.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_MP_MPRespawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Rank.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_HALO_v21.zip/HALO.Stratis/description.ext",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_HALO_v21(1).zip/HALO.Stratis/init.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_HALO_v21.zip/HALO.Stratis/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Function_Loops_Client.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Functions_Sectors.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/initPlayerLocal.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/initServer.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_Player_Respawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Handler_MPHit.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/onPlayerKilled.sqf",
+		"/C/Users/m1ndfuck/Desktop/onPlayerRespawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/onPlayerRespawn.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Init_Client.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_test_mission.altis(1).zip/test_mission.altis/init.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/Training.Stratis/description.ext",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_oo_pdw.altis.zip/oo_pdw.altis/initServer.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/base_preset_1.VR/init.sqf",
+		"/C/Users/m1ndfuck/AppData/Local/Temp/Temp1_oo_pdw.altis.zip/oo_pdw.altis/oo_pdw.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/base_preset_1.VR/mission.sqm",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Template_Bases.hpp",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/Training.Stratis/initServer.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/Training.Stratis/initPlayerLocal.sqf",
+		"/C/Users/m1ndfuck/Documents/Arma 3/missions/WarZones.Altis/WarZones_Gear.sqf"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open folders>",
+			"C:\\Users\\m1ndfuck\\Documents\\Arma 3\\missions\\Fight.Altis"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"_location_independent",
+			"attack1",
+			"transport3",
+			"transport2",
+			"transport1",
+			"basetroops",
+			"paratroopers",
+			"SEctor_COnfig_ARea_TYpe",
+			"_Sector_Config_Area_Type",
+			"_playerobject",
+			"_unit",
+			"_heli",
+			"_base_blufor_flagpole",
+			"_base_opfor_flagpole",
+			"_base_independent_flagpole",
+			"score",
+			"mprespawn",
+			"DB",
+			"iniDB_read",
+			"counter",
+			"WarZones_fnc_tickets",
+			"WarZones_fnc_drawmap",
+			"WarZones_fnc_debug",
+			"WarZones_fnc",
+			"inidbi",
+			"(hasInterface)",
+			"if (hasInterface)",
+			"player",
+			"_newscore",
+			"player",
+			"write",
+			"Null",
+			"Run Unit Gear Lookup",
+			"cfg_map_range",
+			"Only run on Server",
+			"_name",
+			"actual",
+			"spot_texture_color",
+			"spot_side_own",
+			"spot_dead_string",
+			"spot_dead_Pos",
+			"spot_dead_distance",
+			"spot_dead_spotted",
+			"dead_spottedPos",
+			"dead_spotted",
+			"cfg_spot_distance_dead",
+			"spot_distance_dead",
+			"spot_distance_team",
+			"spot_dead",
+			"spotted_spottedPos",
+			"spotted_texture_color",
+			"side_spotted",
+			"side_own",
+			"spotted",
+			" // Does nothing currently, reserved for future use",
+			" // Author displayed in Arsenal",
+			" // Name displayed in Arsenal",
+			" // Image path",
+			"location_blufor_",
+			"location_blufor_x",
+			"MPRespawn",
+			"_playerrank",
+			"_rank",
+			"location_opfor",
+			"location_blufor",
+			"respawn",
+			"_obj",
+			"marker",
+			"west",
+			"respawn",
+			"sandbox",
+			"Rating",
+			".sqf",
+			"[_obj,",
+			"asor",
+			".hpp",
+			"menu",
+			".hpp",
+			"sleep",
+			"sector_independent_trigger",
+			"move_trigger_independent",
+			"sector_independent_sector",
+			"sector_opfor",
+			"sector_obfor",
+			"sector_ob",
+			"sector_opfor_area",
+			"location_opfor_check",
+			"location_independent_check",
+			"area",
+			"sector_blufor",
+			"sector_blufor_area",
+			"azimut=",
+			"BIS_fnc_bleedTickets",
+			"base_independent",
+			"independent",
+			"BLUFOR_Logic",
+			"_blufor_gameobject",
+			"BLUFOR_Logic",
+			"_blufor_gameobject",
+			"myLogic",
+			"_myLogicObject",
+			"opfor",
+			"blufor",
+			"_spawn_template_",
+			"object_opfor_flag",
+			"_script_spawn_independent",
+			"_script_spawn_csat",
+			"_script_spawn_nato",
+			"_sectors_count",
+			"_sectors_num",
+			"marker_independent_location",
+			"marker_opfor_location",
+			"marker_blufor_location",
+			"sector_a_trigger",
+			"_loc",
+			"respawn_independent",
+			"east",
+			"opfor",
+			"blufor",
+			"west",
+			"sqf",
+			"lifter",
+			"Fallujah",
+			"exitwith"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"nil",
+			"Sector_Config_Area_Type",
+			"player",
+			"_victim",
+			"heli",
+			"base_blufor_flagpole",
+			"base_opfor_flagpole",
+			"base_independent_flagpole",
+			"WarZones_fnc_Tickets",
+			"WarZones_fnc_DrawMap",
+			"WarZones_fnc_Debug",
+			"if (!isServer)",
+			"_playerobject",
+			"map_draw_color",
+			"map_draw_side_own",
+			"map_draw_string",
+			"map_draw_Pos",
+			"map_draw_distance",
+			"map_draw_spotted",
+			"spot_dead_Pos",
+			"spot_dead_spotted",
+			"cfg_spotdead_distance",
+			"cfg_spot_distance_dead",
+			"cfg_spot_distance_team",
+			"cfg_spotdead",
+			"spot_dead_spotted",
+			"spot_Pos",
+			"spot_texture_color",
+			"spot_side_spotted",
+			"spot_side_own",
+			"spot_spotted",
+			"",
+			"_location_blufor_",
+			"_location_blufor_x",
+			"_Soldier_rank",
+			"_playerrank",
+			"location_independent",
+			"location_opfor",
+			"_Soldier",
+			"Price",
+			"[_obj,\"",
+			"respawn_independent",
+			"blufor",
+			"INDEPENDENT_Logic",
+			"_independent_gameobject",
+			"OPFOR_Logic",
+			"_opfor_gameobject",
+			"BLUFOR_Logic",
+			"_blufor_gameobject",
+			"independent",
+			"opfor",
+			"spawn_template_",
+			"opfor_flagpole",
+			"_spawn_base_independent",
+			"_spawn_base_opfor",
+			"_spawn_base_nato",
+			"_Sectors_count",
+			"_sectors_count",
+			"location_independent",
+			"location_opfor",
+			"location_blufor",
+			"_location",
+			"base_independent",
+			"independent",
+			"opfor",
+			"east",
+			"Fata"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "description.ext",
+					"settings":
+					{
+						"buffer_size": 16508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1429,
+								1424
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Lang EXT/EXT.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "init.sqf",
+					"settings":
+					{
+						"buffer_size": 1223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "WarZones_Function_AiSkill.sqf",
+					"settings":
+					{
+						"buffer_size": 1591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								317,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "WarZones_Function_BriefingSkipper.sqf",
+					"settings":
+					{
+						"buffer_size": 810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "WarZones_Function_Diary.sqf",
+					"settings":
+					{
+						"buffer_size": 2266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								199,
+								199
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "WarZones_Function_Debug.sqf",
+					"settings":
+					{
+						"buffer_size": 356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "WarZones_Function_Gear.sqf",
+					"settings":
+					{
+						"buffer_size": 3155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								199,
+								199
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Poseidon/SQF.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268.0,
+	"status_bar_visible": true
+}

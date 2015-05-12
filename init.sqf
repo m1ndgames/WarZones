@@ -55,3 +55,6 @@ if (!hasInterface) then {
 if (!hasInterface && !isDedicated) then {
 
 };
+
+// Load Lystic's Anticheat
+[] execVM "Anticheat.sqf";

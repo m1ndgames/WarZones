@@ -425,7 +425,11 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
-			HandGrenade
+			ACE_EarPlugs,
+			HandGrenade,
+			ACE_MapTools,
+			ACE_CableTie,
+			ACE_CableTie
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -466,9 +470,11 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
 			HandGrenade,
 			HandGrenade,
-			3Rnd_HE_Grenade_shell
+			3Rnd_HE_Grenade_shell,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -509,7 +515,28 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
-			Medikit
+			Medikit,
+			ACE_EarPlugs,
+			ACE_atropine,
+			ACE_atropine,
+			ACE_atropine,
+			ACE_atropine,
+			ACE_bloodIV,
+			ACE_bloodIV,
+			ACE_epinephrine,
+			ACE_epinephrine,
+			ACE_epinephrine,
+			ACE_epinephrine,
+			ACE_epinephrine,
+			ACE_morphine,
+			ACE_morphine,
+			ACE_morphine,
+			ACE_morphine,
+			ACE_elasticBandage,
+			ACE_elasticBandage,
+			ACE_elasticBandage,
+			ACE_elasticBandage,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -546,7 +573,9 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
-			HandGrenade
+			ACE_EarPlugs,
+			HandGrenade,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -588,6 +617,7 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
 			Titan_AP,
 			Titan_AT,
 			Titan_AT
@@ -615,7 +645,8 @@ class CfgRespawnInventory {
 			Laserdesignator,
 			arifle_MX_F,
 			hgun_P07_F,
-			launch_B_Titan_F
+			launch_B_Titan_F,
+			ACE_MapTools
 		};
 		magazines[] = {
 			30Rnd_65x39_caseless_mag,
@@ -631,9 +662,11 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
 			Titan_AA,
 			Titan_AA,
-			Titan_AA
+			Titan_AA,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -674,10 +707,15 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
-			ToolKit,
+			ACE_EarPlugs,
+			ACE_DefusalKit,
 			ATMine_Range_Mag,
 			APERSMine_Range_Mag,
-			APERSMine_Range_Mag
+			APERSMine_Range_Mag,
+			ACE_MapTools,
+			ACE_Clacker,
+			ACE_DeadManSwitch,
+			ACE_DefusalKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -700,7 +738,7 @@ class CfgRespawnInventory {
 		icon = pics\markers_3d\Lieutenant.paa;
 
 		weapons[] = {
-			Rangefinder,
+			ACE_Vector,
 			srifle_LRR_camo_F,
 			hgun_P07_F
 		};
@@ -719,6 +757,10 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
+			ACE_ATragMX,
+			ACE_Kestrel4500,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -729,7 +771,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ItemWatch,
+			ACE_Altimeter,
 			ItemRadio
 		};
 		uniformClass = U_B_FullGhillie_sard;
@@ -741,7 +783,7 @@ class CfgRespawnInventory {
 		icon = pics\markers_3d\Captain.paa;
 
 		weapons[] = {
-			Rangefinder,
+			ACE_Vector,
 			srifle_DMR_02_camo_F,
 			hgun_P07_F
 		};
@@ -758,6 +800,10 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
+			ACE_ATragMX,
+			ACE_Kestrel4500,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_TacVest_camo,
@@ -772,7 +818,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ItemWatch,
+			ACE_Altimeter,
 			ItemRadio
 		};
 		uniformClass = U_B_CombatUniform_mcam_vest;
@@ -799,6 +845,10 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
+			ACE_MapTools,
+			ACE_microDAGR,
+			ACE_wirecutter
 			};
 		linkedItems[] = {
 			V_TacVest_camo,
@@ -832,6 +882,8 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			H_PilotHelmetFighter_B,
@@ -839,7 +891,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ItemWatch,
+			ACE_Altimeter,
 			ItemRadio
 		};
 		uniformClass = U_B_PilotCoveralls;
@@ -869,8 +921,10 @@ class CfgRespawnInventory {
 			};
 		items[] = {
 			FirstAidKit,
+			ACE_EarPlugs,
 			HandGrenade,
-			HandGrenade
+			HandGrenade,
+			ACE_MapTools
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,

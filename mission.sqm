@@ -33,7 +33,6 @@ class Mission
 		"ace_explosives",
 		"ace_hearing",
 		"ace_interaction",
-		"ace_map",
 		"ace_microdagr",
 		"ace_weather",
 		"ace_winddeflection",
@@ -63,7 +62,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=91;
+		items=89;
 		class Item0
 		{
 			side="LOGIC";
@@ -2149,52 +2148,6 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7000,0,29000};
-					class args
-					{
-						items=4;
-						class Item0
-						{
-							value="1";
-							parentCls="ACE_ModuleMap";
-							typeName="MapIllumination";
-						};
-						class Item1
-						{
-							value="1";
-							parentCls="ACE_ModuleMap";
-							typeName="MapShake";
-						};
-						class Item2
-						{
-							value="0";
-							parentCls="ACE_ModuleMap";
-							typeName="MapLimitZoom";
-						};
-						class Item3
-						{
-							value="0";
-							parentCls="ACE_ModuleMap";
-							typeName="MapShowCursorCoordinates";
-						};
-					};
-					id=84;
-					side="LOGIC";
-					vehicle="ACE_ModuleMap";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
-		class Item85
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
 					position[]={8000,0,30000};
 					class args
 					{
@@ -2206,7 +2159,7 @@ class Mission
 							typeName="MapDataAvailable";
 						};
 					};
-					id=85;
+					id=84;
 					side="LOGIC";
 					vehicle="ace_microdagr_dagrModule";
 					leader=1;
@@ -2215,7 +2168,7 @@ class Mission
 				};
 			};
 		};
-		class Item86
+		class Item85
 		{
 			side="LOGIC";
 			class Vehicles
@@ -2264,7 +2217,7 @@ class Mission
 							typeName="serverUpdateInterval";
 						};
 					};
-					id=86;
+					id=85;
 					side="LOGIC";
 					vehicle="ace_weather_ModuleSettings";
 					leader=1;
@@ -2273,7 +2226,7 @@ class Mission
 				};
 			};
 		};
-		class Item87
+		class Item86
 		{
 			side="LOGIC";
 			class Vehicles
@@ -2310,7 +2263,7 @@ class Mission
 							typeName="simulationRadius";
 						};
 					};
-					id=87;
+					id=86;
 					side="LOGIC";
 					vehicle="ace_winddeflection_ModuleSettings";
 					leader=1;
@@ -2319,41 +2272,7 @@ class Mission
 				};
 			};
 		};
-		class Item88
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={7982.4683,-183.50999,29035.344};
-					class args
-					{
-						items=2;
-						class Item0
-						{
-							value="1";
-							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="Interval";
-						};
-						class Item1
-						{
-							value="1";
-							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="HideAiGroups";
-						};
-					};
-					id=88;
-					side="LOGIC";
-					vehicle="ACE_ModuleBlueForceTracking";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
-		class Item89
+		class Item87
 		{
 			side="LOGIC";
 			class Vehicles
@@ -2438,7 +2357,7 @@ class Mission
 							typeName="keepLocalSettingsSynced";
 						};
 					};
-					id=89;
+					id=87;
 					side="LOGIC";
 					vehicle="ACE_moduleMedicalSettings";
 					leader=1;
@@ -2447,7 +2366,7 @@ class Mission
 				};
 			};
 		};
-		class Item90
+		class Item88
 		{
 			side="LOGIC";
 			class Vehicles
@@ -2478,7 +2397,7 @@ class Mission
 							typeName="amountOfReviveLives";
 						};
 					};
-					id=90;
+					id=88;
 					side="LOGIC";
 					vehicle="ACE_moduleReviveSettings";
 					leader=1;

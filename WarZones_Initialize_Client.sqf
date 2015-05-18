@@ -3,25 +3,8 @@
 if (player != player) then {
 	waitUntil {player == player};
 };
+
 ["Client: Initializing..."] call WarZones_fnc_debug;
-
-[] spawn {
-	scopeName "SetRank";
-	while {true} do {
-		[] call WarZones_fnc_SetRank;
-	};
-	sleep 2;
-};
-["Client: Spawned Loop: SetRank"] call WarZones_fnc_debug;
-
-[] spawn {
-		scopeName "CheckGear";
-		while {true} do {
-			[] call WarZones_fnc_CheckGear;
-		};
-	sleep 5;
-};
-["Client: Spawned Loop: CheckGear"] call WarZones_fnc_debug;
 
 // Enable HUD
 showHUD true;
@@ -38,7 +21,7 @@ player enableFatigue false;
 ["Client: Fatigue: Disabled"] call WarZones_fnc_Debug;
 
 // Create Diary
-[] call WarZones_fnc_CreateDiary;
+[] spawn WarZones_fnc_CreateDiary;
 ["Client: Diary created"] call WarZones_fnc_debug;
 
 _draw3dhandler = addMissionEventHandler ["Draw3D",{ [] call WarZones_fnc_draw3d; }];
@@ -49,3 +32,5 @@ _drawmaphandler = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",
 
 player addEventHandler ["HandleDamage", {_this exec "WarZones_Handler_Player_HandleDamage.sqf"}];
 ["Client: Local Handler Created: HandleDamage"] call WarZones_fnc_Debug;
+
+// End Client Init

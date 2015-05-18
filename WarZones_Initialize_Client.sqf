@@ -3,7 +3,6 @@
 if (!isServer && (player != player)) then {
 	waitUntil {player == player};
 	waitUntil {time > 10};
-	waitUntil {(getPlayerUID player) != "" && !isNull player && isPlayer player};
 };
 
 // Initialize dynamic groups - Client

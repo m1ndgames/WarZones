@@ -15,8 +15,7 @@ if (isDedicated) then {
 //run on dedicated server or player host
 if (isServer) then {
 	// Init Server
-	_server = execVM "WarZones_Initialize_Server.sqf";
-	waitUntil {isNull _server};
+	[] call WarZones_fnc_InitServer;
 
 	// Init Client Handlers
 	["WarZones_Initialize_Client.sqf","BIS_fnc_execVM",true,true ] call BIS_fnc_MP;
@@ -24,8 +23,6 @@ if (isServer) then {
 
 //run on all player clients incl. player host
 if (hasInterface) then {
-	waitUntil {player == player};
-	waitUntil {time > 10};
 };
 
 //run on all player clients incl. player host and headless clients

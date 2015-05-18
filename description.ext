@@ -50,9 +50,10 @@ respawnButton = 1;
 respawn = 3;
 respawnOnStart = 1;
 respawnDelay = 10;
-respawnVehicleDelay = 300;
-respawnTemplatesWest[] = {"MenuInventory","Counter","Tickets","Wave","EndMission"};
-respawnTemplatesEast[] = {"MenuInventory","Counter","Tickets","Wave","EndMission"};
+respawnVehicleDelay = 60;
+respawnDialog = 1;
+respawnTemplatesWest[] = {"MenuInventory","Counter","Tickets","EndMission"};
+respawnTemplatesEast[] = {"MenuInventory","Counter","Tickets","EndMission"};
 disableChannels[]={2,3,6};
 
 // Define Mission Root
@@ -151,16 +152,16 @@ class CfgFunctions
 				preInit = 1;
 				file = "WarZones_Function_BriefingSkipper.sqf";
 			};
+
+			class InitServer
+			{
+				file = "WarZones_Initialize_Server.sqf";
+			};
 		};
 
 
 		class Loops
 		{
-			class LoopCheckGear
-			{
-				file = "WarZones_Loop_CheckGear.sqf";
-			};
-
 			class LoopAiSpawn
 			{
 				file = "WarZones_Loop_AiSpawn.sqf";

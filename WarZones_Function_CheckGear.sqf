@@ -7,82 +7,85 @@
 /
 */
 
+_playerobject = _this select 0;
+[format ["Performing Gear Check for %1", name _playerobject]] call WarZones_fnc_Debug;
+
 // Register Gear Templates according to player rank
-if (Rank player == "PRIVATE") then {
+if (Rank _playerobject == "PRIVATE") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Private"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Private"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Rifleman"] call BIS_fnc_addRespawnInventory;
-	[player,"Grenadier"] call BIS_fnc_addRespawnInventory;
-	[player,"Medic"] call BIS_fnc_addRespawnInventory;
-	[player,"Autorifleman"] call BIS_fnc_addRespawnInventory;
-	[player,"ATSoldier"] call BIS_fnc_addRespawnInventory;
-	[player,"AASoldier"] call BIS_fnc_addRespawnInventory;
-	[player,"Sapper"] call BIS_fnc_addRespawnInventory;
-	[player,"Sniper"] call BIS_fnc_addRespawnInventory;
-	[player,"Marksmen"] call BIS_fnc_addRespawnInventory;
-	[player,"Recon"] call BIS_fnc_addRespawnInventory;
-	[player,"Pilot"] call BIS_fnc_addRespawnInventory;
-	[player,"Crewman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Rifleman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Grenadier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Medic"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Autorifleman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"ATSoldier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"AASoldier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Sapper"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Sniper"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Marksmen"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Recon"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Pilot"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Crewman"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "CORPORAL") then {
+if (Rank _playerobject == "CORPORAL") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Corporal"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Corporal"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Grenadier"] call BIS_fnc_addRespawnInventory;
-	[player,"Medic"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Grenadier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Medic"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "SERGEANT") then {
+if (Rank _playerobject == "SERGEANT") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Sergeant"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Sergeant"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Autorifleman"] call BIS_fnc_addRespawnInventory;
-	[player,"ATSoldier"] call BIS_fnc_addRespawnInventory;
-	[player,"AASoldier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Autorifleman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"ATSoldier"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"AASoldier"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "LIEUTENANT") then {
+if (Rank _playerobject == "LIEUTENANT") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Lieutenant"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Lieutenant"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Sapper"] call BIS_fnc_addRespawnInventory;
-	[player,"Sniper"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Sapper"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Sniper"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "CAPTAIN") then {
+if (Rank _playerobject == "CAPTAIN") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Captain"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Captain"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Marksmen"] call BIS_fnc_addRespawnInventory;
-	[player,"Recon"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Marksmen"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Recon"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "MAJOR") then {
+if (Rank _playerobject == "MAJOR") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Major"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Major"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
-	[player,"Pilot"] call BIS_fnc_addRespawnInventory;
-	[player,"Crewman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Pilot"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Crewman"] call BIS_fnc_addRespawnInventory;
 };
 
-if (Rank player == "COLONEL") then {
+if (Rank _playerobject == "COLONEL") then {
 	// Set Shoulder Patch according to Rank
-	[player,"Colonel"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"Colonel"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
 };
 
-if (Rank player == "GENERAL") then {
+if (Rank _playerobject == "GENERAL") then {
 	// Set Shoulder Patch according to Rank
-	[player,"General"] call BIS_fnc_setUnitInsignia;
+	[_playerobject,"General"] call BIS_fnc_setUnitInsignia;
 
 	// Set Loadout according to Rank
 };

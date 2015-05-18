@@ -78,7 +78,7 @@ _root = parsingNamespace getVariable "MISSION_ROOT";
 					0,
 					0.025,
 					"PuristaLight",
-					"",
+					"center",
 					false
 				];
 			};

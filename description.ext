@@ -256,7 +256,7 @@ class CfgFunctions
 				file = "WarZones_Function_Gear.sqf";
 			};
 
-			class PilotCheck
+			class CheckPilot
 			{
 				file = "WarZones_Function_CheckPilot.sqf";
 			};

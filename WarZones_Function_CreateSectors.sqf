@@ -247,18 +247,19 @@ _nato_vehicles_air_num = 0;
 
 	// Pilot restriction
 	_x addEventHandler ["GetIn",{
-	        if (_this select 1 == "driver") then {
-	            if (!((_this select 2) in pilots)) then {
-	                _this select 2 action ["eject",_this select 0]; hint "You are not authorized to pilot this vehicle!";
-	            };
+		if (_this select 1 == "driver") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
 			};
-	        if (_this select 1 == "gunner") then {
-	            if (!((_this select 2) in pilots)) then {
-	                _this select 2 action ["eject",_this select 0]; hint "You are not authorized to pilot this vehicle!";
-	            };
+*/		};
+		if (_this select 1 == "gunner") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
 			};
-		}
-	];
+*/		};
+	}];
 
 	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;
 
@@ -328,18 +329,21 @@ _csat_vehicles_air_num = 0;
 
 	// Pilot restriction
 	_x addEventHandler ["GetIn",{
-	        if (_this select 1 == "driver") then {
-	            if (!((_this select 2) in pilots)) then {
-	                _this select 2 action ["eject",_this select 0]; hint "You are not authorized to pilot this vehicle!";
-	            };
+		if (_this select 1 == "driver") then {
+/*			if ([_this select 2] call WarZones_fnc_CheckPilot == "ispilot") then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
 			};
-	        if (_this select 1 == "gunner") then {
-	            if (!((_this select 2) in pilots)) then {
-	                _this select 2 action ["eject",_this select 0]; hint "You are not authorized to pilot this vehicle!";
-	            };
+*/		};
+		if (_this select 1 == "gunner") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
 			};
-		}
-	];
+*/		};
+	}];
 
 	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;
 

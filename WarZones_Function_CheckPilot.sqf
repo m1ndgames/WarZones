@@ -8,10 +8,6 @@
 /
 */
 
-_playerobject = _this select 0;
-
-if headgear _playerobject == "H_PilotHelmetFighter_B" then {
-	pilots pushBack _this;
-} else {
-	pilots - _this;
+if (headgear _this select 0 == "H_PilotHelmetFighter_B") exitWith {
+		echo "ispilot";
 };

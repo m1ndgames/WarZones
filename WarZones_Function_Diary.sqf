@@ -97,5 +97,3 @@ player createDiaryRecord["Diary",
 		"
 	]
 ];
-
-["Created Diary Records"] call WarZones_fnc_Debug;

@@ -156,14 +156,14 @@ class CfgFunctions
 
 		class Loops
 		{
-			class LoopGearCheck
+			class LoopCheckGear
 			{
-				file = "WarZones_Initialize_Server_Loop_GearCheck.sqf";
+				file = "WarZones_Loop_CheckGear.sqf";
 			};
 
 			class LoopAiSpawn
 			{
-				file = "WarZones_Initialize_Server_Loop_AiSpawn.sqf";
+				file = "WarZones_Loop_AiSpawn.sqf";
 			};
 		};
 
@@ -171,17 +171,17 @@ class CfgFunctions
 		{
 			class Skill
 			{
-				file = "WarZones_Function_AiSkill.sqf";
+				file = "WarZones_Param_AiSkill.sqf";
 			};
 
 			class ViewDistance
 			{
-				file = "WarZones_Function_View_Distance.sqf";
+				file = "WarZones_Param_ViewDistance.sqf";
 			};
 
 			class TerrainConfig
 			{
-				file = "WarZones_Function_TerrainConfig.sqf";
+				file = "WarZones_Param_TerrainConfig.sqf";
 			};
 		};
 
@@ -193,7 +193,7 @@ class CfgFunctions
 			};
 
 			class DBInit {
-				file = "WarZones_Function_DB_Init.sqf";
+				file = "WarZones_Function_DBInit.sqf";
 			};
 
 			class DB {
@@ -204,18 +204,10 @@ class CfgFunctions
 
 		class Misc
 		{
-			class DrawUI
-			{
-				file = "WarZones_Function_UI.sqf";
-			};
 
 			class CreateSectors
 			{
 				file = "WarZones_Function_CreateSectors.sqf";
-			};
-
-			class Score {
-				file = "WarZones_Function_Score.sqf";
 			};
 
 			class CreateDiary
@@ -231,10 +223,6 @@ class CfgFunctions
 				file = "WarZones_Map_DrawMap.sqf";
 			};
 
-			class Rank {
-				file = "WarZones_Function_Rank.sqf";
-			};
-
 			class Tickets {
 				file = "WarZones_Function_Tickets.sqf";
 			};
@@ -243,19 +231,14 @@ class CfgFunctions
 				file = "WarZones_Function_Debug.sqf";
 			};
 
-			class GearCheck
+			class CheckGear
 			{
-				file = "WarZones_Function_GearCheck.sqf";
+				file = "WarZones_Function_CheckGear.sqf";
 			};
 
 			class CheckPilot
 			{
 				file = "WarZones_Function_CheckPilot.sqf";
-			};
-
-			class NPCspawn
-			{
-				file = "WarZones_Function_NPCspawn.sqf";
 			};
 
 			class SetRank
@@ -264,38 +247,6 @@ class CfgFunctions
 			};
 
 		};
-	};
-};
-
-#define true 1
-#define false 0
-
-class PointsUI {
-	idd = 100;                      // set to -1, because we don't require a unique ID
-	movingEnable = false;           // the dialog can be moved with the mouse (see "moving" below)
-	enableSimulation = true;      // freeze the game
-	controlsBackground[] = { };    // no background controls needed
-	objects[] = { };               // no objects needed
-	controls[] = { Points };  // our "Hello world" text as seen below:
-
-	class Points {
-		idc = -1;              // set to -1, unneeded
-		moving = 0;            // left click (and hold) this control to move the dialog
-		                       // (requires "movingEnabled" to be 1, see above)
-		type = CT_STATEBOX;      // constant
-		style = ST_LEFT;       // constant
-		text = "Hello world";
-		font = PuristaBold;
-		shadow = 1;
-		sizeEx = 0.023;
-
-		colorBackground[] = { 1, 1, 1, 0.0 };
-		colorText[] = { 0, 0, 0, 1 };
-
-		x = 0.8;
-		y = 0.1;
-		w = 0.2;
-		h = 0.05;
 	};
 };
 

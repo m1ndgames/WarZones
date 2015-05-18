@@ -4,7 +4,7 @@
 /
 /  File: WarZones_Function_CheckPilot.sqf
 /  Description: Function that checks if a unit wears a pilot helmet and adds him to the pilots array.
-/               It is called in a loop in File: WarZones_Initialize_Server_Loop_GearCheck.sqf
+/               It is called in a loop in File: WarZones_Initialize_Server_Loop_CheckGear.sqf
 /
 */
 

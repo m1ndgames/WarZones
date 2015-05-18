@@ -3,15 +3,6 @@
 if (!isServer && (player != player)) then {
 	waitUntil {player == player};
 	waitUntil {time > 10};
-	waitUntil {(getPlayerUID player) != "" && !isNull player && isPlayer player};
-};
-
-if (side player == west) then {
-	group player setGroupId ["%GroupNames - %GroupColors - ","Alpha","GroupColor4"];
-};
-
-if (side player == east) then {
-	group player setGroupId ["%GroupNames - %GroupColors - ","Alpha","GroupColor2"];
 };
 
 // Enable HUD
@@ -40,7 +31,7 @@ player enableFatigue false;
 
 
 [] spawn {
-		scopeName "gearcheck";
+		scopeName "GearCheck";
 		while {true} do {
 			[player] call WarZones_fnc_GearCheck;
 		};
@@ -49,9 +40,9 @@ player enableFatigue false;
 
 
 [] spawn {
-	scopeName "checkscore";
+	scopeName "SetRank";
 	while {true} do {
-		[] call WarZones_fnc_CheckScore;
+		[] call WarZones_fnc_SetRank;
 	};
 	sleep 2;
 };

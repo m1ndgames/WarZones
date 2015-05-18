@@ -19,7 +19,7 @@ debug2log = "yes";
 debug2hint = "no";
 
 // Show in Global Chat
-debug2global = "yes";
+debug2global = "no";
 
 if (usedebug == "yes") then {
 	if (debug2log == "yes") then {

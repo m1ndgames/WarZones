@@ -49,7 +49,7 @@ onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerDisconn
 [] call WarZones_fnc_CreateSectors;
 
 // Function: Loop > AiSpawn
-[] spawn WarZones_fnc_LoopAiSpawn;
+[] call WarZones_fnc_LoopAiSpawn;
 
 [] spawn {
 	scopeName "SetRank";

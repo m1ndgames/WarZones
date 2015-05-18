@@ -19,17 +19,14 @@ if (isServer) then {
 	_server = execVM "WarZones_Initialize_Server.sqf";
 	waitUntil {isNull _server};
 
-	// Pilots array
-	pilots = [];
-	tankcrew = [];
-
 	// Init Client Handlers
 	["WarZones_Initialize_Client_Handlers.sqf","BIS_fnc_execVM",true,true ] call BIS_fnc_MP;
 };
 
 //run on all player clients incl. player host
 if (hasInterface) then {
-	waitUntil {(getPlayerUID player) != "" && !isNull player && isPlayer player};
+	waitUntil {player == player};
+	waitUntil {time > 10};
 
 	// Init Client
 	_client = execVM "WarZones_Initialize_Client.sqf";

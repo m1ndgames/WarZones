@@ -8,6 +8,19 @@
 */
 
 // [input] call WarZones_fnc_Debug;
+
 _input = _this select 0;
 
-diag_log text format["----> WarZones Debug:  %1", _input];
+usedebug = "yes";
+debug2log = "yes";
+debug2hint = "no";
+
+if (usedebug == "yes") then {
+	if (debug2log == "yes") then {
+		diag_log text format["----> WarZones Debug:  %1", _input];
+	};
+
+	if (debug2hint == "yes") then {
+		hint format["----> WarZones Debug:  %1", _input];
+	};
+};

@@ -165,14 +165,6 @@ class CfgFunctions
 			{
 				file = "WarZones_Initialize_Server_Loop_AiSpawn.sqf";
 			};
-			class LoopCheckScore
-			{
-				file = "WarZones_Initialize_Server_Loop_CheckScore.sqf";
-			};
-			class CheckScore
-			{
-				file = "WarZones_Initialize_Server_CheckScore.sqf";
-			};
 		};
 
 		class MissionParameters
@@ -253,7 +245,7 @@ class CfgFunctions
 
 			class GearCheck
 			{
-				file = "WarZones_Function_Gear.sqf";
+				file = "WarZones_Function_GearCheck.sqf";
 			};
 
 			class CheckPilot
@@ -264,6 +256,11 @@ class CfgFunctions
 			class NPCspawn
 			{
 				file = "WarZones_Function_NPCspawn.sqf";
+			};
+
+			class SetRank
+			{
+				file = "WarZones_Function_SetRank.sqf";
 			};
 
 		};

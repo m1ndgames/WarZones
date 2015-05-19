@@ -19,7 +19,9 @@ class Mission
 		"ace_microdagr",
 		"ace_weather",
 		"ace_winddeflection",
-		"ace_medical"
+		"ace_medical",
+		"cba_main",
+		"cba_xeh"
 	};
 	addOnsAuto[]=
 	{
@@ -37,6 +39,8 @@ class Mission
 		"ace_weather",
 		"ace_winddeflection",
 		"ace_medical",
+		"cba_main",
+		"cba_xeh",
 		"a3_map_altis"
 	};
 	randomSeed=15461198;
@@ -62,7 +66,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=89;
+		items=91;
 		class Item0
 		{
 			side="LOGIC";
@@ -2400,6 +2404,42 @@ class Mission
 					id=88;
 					side="LOGIC";
 					vehicle="ACE_moduleReviveSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item89
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1000,0,29000};
+					id=89;
+					side="LOGIC";
+					vehicle="CBA_main_require";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item90
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2000,0,29000};
+					id=90;
+					side="LOGIC";
+					vehicle="SLX_XEH_Logic";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;

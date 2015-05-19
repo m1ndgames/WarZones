@@ -8,6 +8,7 @@
 */
 
 _playerobject = _this select 0;
+[format ["Performing Gear Check for %1", name _playerobject]] call WarZones_fnc_Debug;
 
 // Register Gear Templates according to player rank
 if (Rank _playerobject == "PRIVATE") then {

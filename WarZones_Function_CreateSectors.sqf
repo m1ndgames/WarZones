@@ -36,9 +36,13 @@ _location_opfor = _Shuffled_Sectors select 1;
 [format ["OPFOR Position: %1", _location_opfor]] call WarZones_fnc_Debug;
 
 // Define x/y
+_location_blufor_x = _location_blufor select 0;
+_location_blufor_y = _location_blufor select 1;
+
 _location_opfor_x = _location_opfor select 0;
 _location_opfor_y = _location_opfor select 1;
 
+//////////////////////
 // Create Sectors
 
 // BLUFOR
@@ -52,12 +56,9 @@ sector_blufor_trigger setPos getPos base_blufor_flagpole;
 
 // Create Respawn Marker
 _marker_RespawnBLUFOR = ["respawn_west", sector_blufor_trigger] call BIS_fnc_markerToTrigger;
+_marker_RespawnBLUFOR setMarkerType "respawn_inf";
 _marker_RespawnBLUFOR setMarkerAlpha 0;
 ["NATO marker created"] call WarZones_fnc_debug;
-
-_marker_vehicle_RespawnBLUFOR = ["respawn_vehicle_west", sector_blufor_trigger] call BIS_fnc_markerToTrigger;
-_marker_vehicle_RespawnBLUFOR setMarkerAlpha 0;
-["NATO Vehicle Respawn marker created"] call WarZones_fnc_debug;
 
 // OPFOR
 // Create Center Flagpole
@@ -70,12 +71,9 @@ sector_opfor_trigger setPos getPos base_opfor_flagpole;
 
 // Create Respawn Marker
 _marker_RespawnOPFOR = ["respawn_east", sector_opfor_trigger] call BIS_fnc_markerToTrigger;
+_marker_RespawnOPFOR setMarkerType "respawn_inf";
 _marker_RespawnOPFOR setMarkerAlpha 0;
 ["CSAT marker created"] call WarZones_fnc_debug;
-
-_marker_vehicle_RespawnOPFOR = ["respawn_vehicle_east", sector_opfor_trigger] call BIS_fnc_markerToTrigger;
-_marker_vehicle_RespawnOPFOR setMarkerAlpha 0;
-["CSAT Vehicle Respawn marker created"] call WarZones_fnc_debug;
 
 // Measure distance between BLUFOR and OPFOR
 _distance = [base_blufor_flagpole, base_opfor_flagpole] call BIS_fnc_distance2D;
@@ -182,31 +180,172 @@ if (Sector_Config_Area_Type == "tanks") then {
 	// Spawn Independent Base
 	_Base_INDEPENDENT = [_location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
 };
-
-if (Sector_Config_Area_Type == "infantry") then {
-	// Nothing
-};
-
 ["Sectors created"] call WarZones_fnc_Debug;
 
-// Adding vehicle respawn and adding restrictions with exeptions for pilots and crewmen
-{
-	if ( _x iskindOf "Car" and count crew _x == 0) then {
-		_x respawnVehicle [30, 0];
-	};
-	if ( _x iskindOf "Tank" and count crew _x == 0) then {
-		_x respawnVehicle [60, 0];
-	};
-	if ( _x iskindOf "Air" and count crew _x == 0) then {
-		_x respawnVehicle [120, 0];
+////////////////////////////////////////////
+// Vehicle respawn markers and restrictions
 
-		_x addEventHandler ["GetIn",{
-		        if (_this select 1 == "driver") then {
-		            if (!((_this select 2) in pilots)) then {
-		                _this select 2 action ["eject",_this select 0]; hint "You are not authorized to pilot this vehicle!";
-		            };
-				};
-			}
-		];
-	};
-} forEach vehicles;
+//// NATO
+["Creating NATO vehicle respawn markers and handlers"] call WarZones_fnc_Debug;
+
+// Cars
+_nato_vehicles_car = [_location_blufor_x, _location_blufor_y] nearObjects ["Car", 100];
+_nato_vehicles_car_num = 0;
+{
+	_nato_vehicles_car_num = _nato_vehicles_car_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_nato_car_position = getPos _x;
+	_x respawnVehicle [30, 0];
+	[format ["Found %1 on %2", _x, _nato_car_position]] call WarZones_fnc_Debug;
+	["--> Set Vehicle Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_nato_marker_string = Format ["respawn_vehicle_west_%1", str _nato_vehicles_car_num];
+	createMarker [_nato_marker_string, position _x ];
+	_nato_marker_string setMarkerAlpha 0.25;
+	_nato_marker_string setMarkerType "respawn_motor";
+	[format ["--> Vehicle Respawn marker created: %1", _nato_marker_string]] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _nato_vehicles_car;
+
+// Tanks
+_nato_vehicles_tank = [_location_blufor_x, _location_blufor_y] nearObjects ["Tank", 100];
+_nato_vehicles_tank_num = 0;
+{
+	_nato_vehicles_tank_num = _nato_vehicles_tank_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_nato_tank_position = getPos _x;
+	_x respawnVehicle [60, 0];
+	[format ["Found %1 on %2", _x, _nato_tank_position]] call WarZones_fnc_Debug;
+	["--> Set Tank Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_nato_marker_string = Format ["respawn_vehicle_west_%1", str _nato_vehicles_tank_num];
+	createMarker [_nato_marker_string, position _x ];
+	_nato_marker_string setMarkerAlpha 0.25;
+	_nato_marker_string setMarkerType "respawn_armor";
+	[format ["--> Tank Respawn marker created: %1", _nato_marker_string]] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _nato_vehicles_tank;
+
+// Air
+_nato_vehicles_air = [_location_blufor_x, _location_blufor_y] nearObjects ["Air", 100];
+_nato_vehicles_air_num = 0;
+{
+	_nato_vehicles_air_num = _nato_vehicles_air_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_nato_air_position = getPos _x;
+	_x respawnVehicle [120, 0];
+	[format ["Found %1 on %2", _x, _nato_air_position]] call WarZones_fnc_Debug;
+	["--> Set air Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_nato_marker_string = Format ["respawn_vehicle_west_%1", str _nato_vehicles_air_num];
+	createMarker [_nato_marker_string, position _x ];
+	_nato_marker_string setMarkerAlpha 0.25;
+	_nato_marker_string setMarkerType "respawn_armor";
+	[format ["--> Air Respawn marker created: %1", _nato_marker_string]] call WarZones_fnc_Debug;
+
+	// Pilot restriction
+	_x addEventHandler ["GetIn",{
+		if (_this select 1 == "driver") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
+			};
+*/		};
+		if (_this select 1 == "gunner") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
+			};
+*/		};
+	}];
+
+	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _nato_vehicles_air;
+
+
+//// CSAT
+["Creating CSAT vehicle respawn markers and handlers"] call WarZones_fnc_Debug;
+
+// Cars
+_csat_vehicles_car = [_location_opfor_x, _location_opfor_y] nearObjects ["Car", 100];
+_csat_vehicles_car_num = 0;
+{
+	_csat_vehicles_car_num = _csat_vehicles_car_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_csat_car_position = getPos _x;
+	_x respawnVehicle [30, 0];
+	[format ["Found %1 on %2", _x, _csat_car_position]] call WarZones_fnc_Debug;
+	["--> Set Vehicle Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_csat_marker_string = Format ["respawn_vehicle_east_%1", str _csat_vehicles_car_num];
+	createMarker [_csat_marker_string, position _x ];
+	_csat_marker_string setMarkerAlpha 0.25;
+	_csat_marker_string setMarkerType "respawn_motor";
+	[format ["--> Vehicle Respawn marker created: %1", _csat_marker_string]] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _csat_vehicles_car;
+
+// Tanks
+_csat_vehicles_tank = [_location_opfor_x, _location_opfor_y] nearObjects ["Tank", 100];
+_csat_vehicles_tank_num = 0;
+{
+	_csat_vehicles_tank_num = _csat_vehicles_tank_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_csat_tank_position = getPos _x;
+	_x respawnVehicle [60, 0];
+	[format ["Found %1 on %2", _x, _csat_tank_position]] call WarZones_fnc_Debug;
+	["--> Set Tank Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_csat_marker_string = Format ["respawn_vehicle_east_%1", str _csat_vehicles_tank_num];
+	createMarker [_csat_marker_string, position _x ];
+	_csat_marker_string setMarkerAlpha 0.25;
+	_csat_marker_string setMarkerType "respawn_armor";
+	[format ["--> Tank Respawn marker created: %1", _csat_marker_string]] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _csat_vehicles_tank;
+
+// Air
+_csat_vehicles_air = [_location_opfor_x, _location_opfor_y] nearObjects ["Air", 100];
+_csat_vehicles_air_num = 0;
+{
+	_csat_vehicles_air_num = _csat_vehicles_air_num + 1;
+	_x setVariable ["BIS_enableRandomization", false];
+	_csat_air_position = getPos _x;
+	_x respawnVehicle [120, 0];
+	[format ["Found %1 on %2", _x, _csat_air_position]] call WarZones_fnc_Debug;
+	["--> Set air Respawn: 30 Seconds"] call WarZones_fnc_Debug;
+
+	_csat_marker_string = Format ["respawn_vehicle_east_%1", str _csat_vehicles_air_num];
+	createMarker [_csat_marker_string, position _x ];
+	_csat_marker_string setMarkerAlpha 0.25;
+	_csat_marker_string setMarkerType "respawn_armor";
+	[format ["--> Air Respawn marker created: %1", _csat_marker_string]] call WarZones_fnc_Debug;
+
+	// Pilot restriction
+	_x addEventHandler ["GetIn",{
+		if (_this select 1 == "driver") then {
+/*			if ([_this select 2] call WarZones_fnc_CheckPilot == "ispilot") then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
+			};
+*/		};
+		if (_this select 1 == "gunner") then {
+/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to pilot this vehicle!";
+			};
+*/		};
+	}];
+
+	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;
+
+	sleep 0.1;
+} forEach _csat_vehicles_air;

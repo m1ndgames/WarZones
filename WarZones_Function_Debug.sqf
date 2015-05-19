@@ -7,7 +7,30 @@
 /
 */
 
-// [input] call WarZones_fnc_Debug;
 _input = _this select 0;
 
-diag_log text format["----> WarZones Debug:  %1", _input];
+// Show Debug messages?
+usedebug = "yes";
+
+// RPT Logfile
+debug2log = "yes";
+
+// Show as hint
+debug2hint = "no";
+
+// Show in Global Chat
+debug2global = "no";
+
+if (usedebug == "yes") then {
+	if (debug2log == "yes") then {
+		diag_log text format["----> WarZones Debug:  %1", _input];
+	};
+
+	if (debug2hint == "yes") then {
+		hint format["----> WarZones Debug:  %1", _input];
+	};
+
+	if (debug2global == "yes") then {
+		player globalChat format["----> WarZones Debug:  %1", _input];
+	};
+};

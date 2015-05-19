@@ -6,6 +6,8 @@ if (player != player) then {
 
 ["Client: Initializing..."] call WarZones_fnc_debug;
 
+[player] call WarZones_fnc_CheckGear;
+
 // Enable HUD
 showHUD true;
 ["Client: HUD enabled"] call WarZones_fnc_debug;

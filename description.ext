@@ -49,7 +49,7 @@ maxScore = 50000;
 respawnButton = 0;
 respawn = 3;
 respawnOnStart = 1;
-respawnDelay = 10;
+respawnDelay = 30;
 respawnVehicleDelay = 60;
 respawnDialog = 1;
 respawnTemplatesWest[] = {"MenuInventory","Counter","Tickets","EndMission"};
@@ -161,11 +161,6 @@ class CfgFunctions
 
 		class MissionParameters
 		{
-			class Skill
-			{
-				file = "WarZones_Param_AiSkill.sqf";
-			};
-
 			class ViewDistance
 			{
 				file = "WarZones_Param_ViewDistance.sqf";

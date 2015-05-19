@@ -61,15 +61,6 @@ __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15])
 
 class Params
 {
-	class Skill
-	{
-		title = "AI Skill";
-		value[] = {1,2,3};
-		texts[] = {"Easy","Medium","Hard"};
-		default = 2;
-		function = "WarZones_fnc_Skill";
-		isGlobal = 1;
-	};
 
 	class Time
 	{
@@ -85,7 +76,7 @@ class Params
 	{
 		title = "View distance (in metres)";
 		value[] = {500,1000,1500,2000,2500};
-		default = 2000;
+		default = 2500;
 		function = "WarZones_fnc_ViewDistance";
 		isGlobal = 1;
 	};
@@ -95,7 +86,7 @@ class Params
 		title = "Terrain";
 		texts[] = {"Low","Standart","High","Very High","Ultra"};
 		value[] = {50,25,12.5,6.25,3.125};
-		default = 25;
+		default = 12.5;
 		function = "WarZones_fnc_TerrainConfig";
 		isGlobal = 1;
 	}
@@ -104,7 +95,7 @@ class Params
 	{
 		title = "Max Range for 3D Player Markers";
 		value[] = {250,500,750,1000};
-		default = 250;
+		default = 500;
 		isGlobal = 1;
 	};
 

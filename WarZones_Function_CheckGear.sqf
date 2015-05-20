@@ -28,6 +28,7 @@ if (Rank _playerobject == "PRIVATE") then {
 	[_playerobject,"Recon"] call BIS_fnc_addRespawnInventory;
 	[_playerobject,"Pilot"] call BIS_fnc_addRespawnInventory;
 	[_playerobject,"Crewman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Doctor"] call BIS_fnc_addRespawnInventory;
 };
 
 if (Rank _playerobject == "CORPORAL") then {
@@ -74,6 +75,7 @@ if (Rank _playerobject == "MAJOR") then {
 	// Set Loadout according to Rank
 	[_playerobject,"Pilot"] call BIS_fnc_addRespawnInventory;
 	[_playerobject,"Crewman"] call BIS_fnc_addRespawnInventory;
+	[_playerobject,"Doctor"] call BIS_fnc_addRespawnInventory;
 };
 
 if (Rank _playerobject == "COLONEL") then {

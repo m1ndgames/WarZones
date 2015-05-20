@@ -225,6 +225,27 @@ _nato_vehicles_tank_num = 0;
 	_nato_marker_string setMarkerType "respawn_armor";
 	[format ["--> Tank Respawn marker created: %1", _nato_marker_string]] call WarZones_fnc_Debug;
 
+	// Crewmen restriction
+	_x addEventHandler ["GetIn",{
+		if (_this select 1 == "driver") then {
+			if( ( _this select 2 getVariable [ "Crewman", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to control this vehicle!";
+			};
+		};
+		if (_this select 1 == "gunner") then {
+			if( ( _this select 2 getVariable [ "Crewman", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to control this vehicle!";
+			};
+		};
+	}];
+	["--> Crewmen restriction enabled"] call WarZones_fnc_Debug;
+
 	sleep 0.1;
 } forEach _nato_vehicles_tank;
 
@@ -248,17 +269,21 @@ _nato_vehicles_air_num = 0;
 	// Pilot restriction
 	_x addEventHandler ["GetIn",{
 		if (_this select 1 == "driver") then {
-/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+			if( ( _this select 2 getVariable [ "Pilot", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
 				_this select 2 action ["eject",_this select 0];
 				hint "You are not authorized to pilot this vehicle!";
 			};
-*/		};
+		};
 		if (_this select 1 == "gunner") then {
-/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+			if( ( _this select 2 getVariable [ "Pilot", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
 				_this select 2 action ["eject",_this select 0];
 				hint "You are not authorized to pilot this vehicle!";
 			};
-*/		};
+		};
 	}];
 
 	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;
@@ -307,6 +332,27 @@ _csat_vehicles_tank_num = 0;
 	_csat_marker_string setMarkerType "respawn_armor";
 	[format ["--> Tank Respawn marker created: %1", _csat_marker_string]] call WarZones_fnc_Debug;
 
+	// Crewmen restriction
+	_x addEventHandler ["GetIn",{
+		if (_this select 1 == "driver") then {
+			if( ( _this select 2 getVariable [ "Crewman", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to control this vehicle!";
+			};
+		};
+		if (_this select 1 == "gunner") then {
+			if( ( _this select 2 getVariable [ "Crewman", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
+				_this select 2 action ["eject",_this select 0];
+				hint "You are not authorized to control this vehicle!";
+			};
+		};
+	}];
+	["--> Crewmen restriction enabled"] call WarZones_fnc_Debug;
+
 	sleep 0.1;
 } forEach _csat_vehicles_tank;
 
@@ -330,19 +376,21 @@ _csat_vehicles_air_num = 0;
 	// Pilot restriction
 	_x addEventHandler ["GetIn",{
 		if (_this select 1 == "driver") then {
-/*			if ([_this select 2] call WarZones_fnc_CheckPilot == "ispilot") then {
+			if( ( _this select 2 getVariable [ "Pilot", true ] ) ) then {
 				hint "Please join Teamspeak!";
 			} else {
 				_this select 2 action ["eject",_this select 0];
 				hint "You are not authorized to pilot this vehicle!";
 			};
-*/		};
+		};
 		if (_this select 1 == "gunner") then {
-/*			if headgear _this select 2 != "H_PilotHelmetFighter_B" then {
+			if( ( _this select 2 getVariable [ "Pilot", true ] ) ) then {
+				hint "Please join Teamspeak!";
+			} else {
 				_this select 2 action ["eject",_this select 0];
 				hint "You are not authorized to pilot this vehicle!";
 			};
-*/		};
+		};
 	}];
 
 	["--> Pilot restriction enabled"] call WarZones_fnc_Debug;

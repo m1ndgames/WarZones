@@ -6,7 +6,7 @@ if (player != player) then {
 
 ["Client: Initializing..."] call WarZones_fnc_debug;
 
-[player] call WarZones_fnc_CheckGear;
+[player] spawn WarZones_fnc_CheckGear;
 
 // Enable HUD
 showHUD true;
@@ -15,9 +15,6 @@ showHUD true;
 // Disable NPC Talk
 player disableConversation true;
 ["Client: Disabled conversations"] call WarZones_fnc_debug;
-
-execVM "scripts\3rdView.sqf";
-["Client: 3rd Person View: Disabled"] call WarZones_fnc_Debug;
 
 // Create Diary
 [] spawn WarZones_fnc_CreateDiary;

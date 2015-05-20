@@ -7,14 +7,6 @@
 //["Initialize"] call BIS_fnc_dynamicGroups;
 //["Initialized Dynamic Groups"] call WarZones_fnc_Debug;
 
-// Create Side Centers and Groups
-BLUFOR_HQ = createCenter blufor;
-BLUFOR_Group = createGroup BLUFOR_HQ;
-OPFOR_HQ = createCenter opfor;
-OPFOR_Group = createGroup OPFOR_HQ;
-INDEPENDENT_HQ = createCenter resistance;
-INDEPENDENT_Group = createGroup INDEPENDENT_HQ;
-
 // Give Tickets to the Teams
 ["add",blufor,250] call WarZones_fnc_Tickets;
 ["add",opfor,250] call WarZones_fnc_Tickets;
@@ -49,7 +41,7 @@ onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerDisconn
 [] call WarZones_fnc_CreateSectors;
 
 // Function: Loop > AiSpawn
-[] call WarZones_fnc_LoopAiSpawn;
+[] call WarZones_fnc_SpawnAi;
 
 [] spawn {
 	scopeName "SetRank";

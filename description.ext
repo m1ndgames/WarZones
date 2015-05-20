@@ -107,14 +107,6 @@ class Params
 		isGlobal = 1;
 	};
 
-	class RestrictView
-	{
-		title = "Enable 3D View restriction?";
-		value[] = {"Yes","No"};
-		default = "Yes";
-		isGlobal = 1;
-	};
-
 	class Fatigue
 	{
 		title = "Disable Fatigue?";
@@ -150,15 +142,6 @@ class CfgFunctions
 			};
 		};
 
-
-		class Loops
-		{
-			class LoopAiSpawn
-			{
-				file = "WarZones_Loop_AiSpawn.sqf";
-			};
-		};
-
 		class MissionParameters
 		{
 			class ViewDistance
@@ -188,6 +171,38 @@ class CfgFunctions
 			};
 		};
 
+		class SpawnAi
+		{
+			class SpawnAi
+			{
+				file = "WarZones_Function_SpawnAi.sqf";
+			};
+
+			class SpawnAiInfantry
+			{
+				file = "WarZones_SpawnAi_Infantry.sqf";
+			};
+
+			class SpawnAiMotorized
+			{
+				file = "WarZones_SpawnAi_Motorized.sqf";
+			};
+
+			class SpawnAiTanks
+			{
+				file = "WarZones_SpawnAi_Tanks.sqf";
+			};
+
+			class SpawnAiHelicopters
+			{
+				file = "WarZones_SpawnAi_Helicopters.sqf";
+			};
+
+			class SpawnAiReinforcements
+			{
+				file = "WarZones_SpawnAi_Reinforcements.sqf";
+			};
+		};
 
 		class Misc
 		{
@@ -221,11 +236,6 @@ class CfgFunctions
 			class CheckGear
 			{
 				file = "WarZones_Function_CheckGear.sqf";
-			};
-
-			class CheckPilot
-			{
-				file = "WarZones_Function_CheckPilot.sqf";
 			};
 
 			class SetRank

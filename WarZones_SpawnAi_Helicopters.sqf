@@ -1,0 +1,1 @@
+["Spawned AAF Base Units: Helicopters"] call WarZones_fnc_Debug;

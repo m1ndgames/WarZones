@@ -12,10 +12,7 @@ player createDiaryRecord["Diary",
 		"
 			- Arma 3 Forums + Wiki and the IRC Chat<br/>
 			- Code34 for the helpful tips<br/>
-			- spunFIN for his Ai spawn Pack<br/>
-			- Rodeostar42 for his 3D Restriction Script<br/>
 			- KK's Blog for the Briefing-Skip function<br/>
-			- Lystic for the Cheat Detection<br/>
 		"
 	]
 ];

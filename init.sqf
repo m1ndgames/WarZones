@@ -40,6 +40,3 @@ if (!hasInterface) then {
 //run on headless clients only
 if (!hasInterface && !isDedicated) then {
 };
-
-// Load Lystic's Anticheat
-[] execVM "Anticheat.sqf";

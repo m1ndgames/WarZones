@@ -1,29 +1,75 @@
+///////////////////
+// Create Sentries
+_position = getPos base_independent_flagpole findEmptyPosition [1,10];
+_sentry1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_sentry1 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
-_sentry2 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
-_sentry3 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
-_sentry4 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_position = getPos base_independent_flagpole findEmptyPosition [10,25];
+_sentry2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-SENTRYGROUP = createGroup INDEPENDENT_HQ;
-[units _sentry1] join SENTRYGROUP;
-[units _sentry2] join SENTRYGROUP;
-[units _sentry3] join SENTRYGROUP;
-[units _sentry4] join SENTRYGROUP;
+_position = getPos base_independent_flagpole findEmptyPosition [25,50];
+_sentry3 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-[SENTRYGROUP, getPos base_independent_flagpole, 75, 10, "MOVE", "AWARE", "YELLOW", "FULL", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [5,10,15]] call CBA_fnc_taskPatrol;
+_position = getPos base_independent_flagpole findEmptyPosition [50,75];
+_sentry4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_sniper1 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
-_infteam1 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
-_infteam2 = [getPos base_independent_flagpole, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
+// Sentries find a house and dont patrol
+[_sentry1, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
+[_sentry2, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
+[_sentry3, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
+[_sentry4, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
 
-DEFENDGROUP = createGroup INDEPENDENT_HQ;
-[units _sniper1] join DEFENDGROUP;
-[units _infteam1] join DEFENDGROUP;
-[units _infteam2] join DEFENDGROUP;
-[DEFENDGROUP, getPos base_independent_flagpole, 75, 3, true] call CBA_fnc_taskDefend
 
-[units SENTRYGROUP] join BASEGROUP;
-[units DEFENDGROUP] join BASEGROUP;
+///////////////////
+// Create Snipers
+_position = getPos base_independent_flagpole findEmptyPosition [1,10];
+_sniper1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
 
-sleep 0.1;
-["Spawned AAF Base Units: Infantry"] call WarZones_fnc_Debug;
+_position = getPos base_independent_flagpole findEmptyPosition [50,75];
+_sniper2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
+
+// Snipers look for bigger houses in a bigger area, they dont patrol
+[_sniper1, getPos base_independent_flagpole, 150, 15, true] call CBA_fnc_taskDefend; // Big white House in Kavala
+[_sniper2, getPos base_independent_flagpole, 150, 15, true] call CBA_fnc_taskDefend;
+
+
+///////////////////
+// Create patrol
+_position = getPos base_independent_flagpole findEmptyPosition [1,25];
+_patrol1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+
+_position = getPos base_independent_flagpole findEmptyPosition [1,25];
+_patrol2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+
+_position = getPos base_independent_flagpole findEmptyPosition [25,50];
+_patrol3 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+
+_position = getPos base_independent_flagpole findEmptyPosition [25,50];
+_patrol4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+
+// Orders: Patrol and search houses
+[_patrol1, getPos base_independent_flagpole, 100, 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_patrol2, getPos base_independent_flagpole, 100, 8, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_patrol3, getPos base_independent_flagpole, 100, 9, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_patrol4, getPos base_independent_flagpole, 100, 10, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+
+
+/////////////////////////////////////
+// Push all Base Units into an Array
+
+// Sentries
+{ UnitsBase pushBack _x; } forEach units _sentry1;
+{ UnitsBase pushBack _x; } forEach units _sentry2;
+{ UnitsBase pushBack _x; } forEach units _sentry3;
+{ UnitsBase pushBack _x; } forEach units _sentry4;
+
+// Snipers
+{ UnitsBase pushBack _x; } forEach units _sniper1;
+{ UnitsBase pushBack _x; } forEach units _sniper2;
+
+// Patrol
+{ UnitsBase pushBack _x; } forEach units _patrol1;
+{ UnitsBase pushBack _x; } forEach units _patrol2;
+{ UnitsBase pushBack _x; } forEach units _patrol3;
+{ UnitsBase pushBack _x; } forEach units _patrol4;
+
+[format ["Spawned %1 AAF Base Units: Infantry", count UnitsBase]] call WarZones_fnc_Debug;

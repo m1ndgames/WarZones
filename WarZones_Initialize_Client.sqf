@@ -19,9 +19,6 @@ player disableConversation true;
 execVM "scripts\3rdView.sqf";
 ["Client: 3rd Person View: Disabled"] call WarZones_fnc_Debug;
 
-player enableFatigue false;
-["Client: Fatigue: Disabled"] call WarZones_fnc_Debug;
-
 // Create Diary
 [] spawn WarZones_fnc_CreateDiary;
 ["Client: Diary created"] call WarZones_fnc_debug;

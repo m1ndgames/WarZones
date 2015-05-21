@@ -52,4 +52,7 @@ onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerDisconn
 };
 ["Server: Spawned Loop: SetRank"] call WarZones_fnc_debug;
 
+// Add player Menu
+_settings = [["Settings", "WarZones_Function_PlayerMenu.sqf"]] call CBA_fnc_addPlayerAction;
+
 // End Server Init

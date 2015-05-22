@@ -28,10 +28,9 @@ if (Sector_Config_Area_Type == "helicopters") then {
 		if (_aaftickets > 1) then {
 			_aafforcescount = count UnitsBase;
 			if (_aafforcescount < 5) then {
-				["Less then three AAF Base Units, starting Halo-Loop and sending the 1st Drop"] call WarZones_fnc_Debug;
+				["Less then 5 AAF Base Units, starting Halo-Loop and sending the 1st Drop"] call WarZones_fnc_Debug;
 				[] call WarZones_fnc_SpawnAiReinforcements;
 				[resistance,-10] call BIS_fnc_respawnTickets;
-				["AAF Troops incoming!","hint",true,true] call BIS_fnc_MP;
 				while {true} do {
 					sleep 120;
 					_trooperscount = count UnitsReinforcements;

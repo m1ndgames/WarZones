@@ -6,7 +6,7 @@ if (player != player) then {
 
 ["Client: Initializing..."] call WarZones_fnc_debug;
 
-[player] spawn WarZones_fnc_CheckGear;
+[player] call WarZones_fnc_CheckGear;
 
 // Enable HUD
 showHUD true;
@@ -20,11 +20,13 @@ player disableConversation true;
 [] spawn WarZones_fnc_CreateDiary;
 ["Client: Diary created"] call WarZones_fnc_debug;
 
-_draw3dhandler = addMissionEventHandler ["Draw3D",{ [] call WarZones_fnc_draw3d; }];
-["Client: Local Handler Created: Draw3D"] call WarZones_fnc_debug;
+//_draw3dhandler = addMissionEventHandler ["Draw3D",{ [] call WarZones_fnc_draw3d; }];
+//["Client: Local Handler Created: Draw3D"] call WarZones_fnc_debug;
 
 _drawmaphandler = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",{ [] call WarZones_fnc_drawmap; }];
 ["Client: Local Handler Created: Draw"] call WarZones_fnc_debug;
+
+//_drawmaphandler = [((findDisplay 12) displayCtrl 51), "Draw"] call CBA_fnc_addDisplayHandler;
 
 player addEventHandler ["HandleDamage", {_this exec "WarZones_Handler_Player_HandleDamage.sqf"}];
 ["Client: Local Handler Created: HandleDamage"] call WarZones_fnc_Debug;

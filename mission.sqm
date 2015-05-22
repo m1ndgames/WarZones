@@ -2706,7 +2706,7 @@ class Mission
 						items=4;
 						class Item0
 						{
-							value="0";
+							value="50";
 							parentCls="ACE_ModuleNameTags";
 							typeName="PlayerNamesViewDistance";
 						};
@@ -2718,13 +2718,13 @@ class Mission
 						};
 						class Item2
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_ModuleNameTags";
 							typeName="showVehicleCrewInfo";
 						};
 						class Item3
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_ModuleNameTags";
 							typeName="showCursorTagForVehicles";
 						};

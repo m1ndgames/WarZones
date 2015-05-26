@@ -18,23 +18,23 @@
 ["Server: Ticket Bleeding initialized"] call WarZones_fnc_Debug;
 
 // MP Handler: MPKilled
-player addMPEventHandler ["MPKilled", {_this execVM "WarZones_Handler_MPKilled.sqf";}];
+player addMPEventHandler ["MPKilled", {_this execVM "WarZones_hnd_MPKilled.sqf";}];
 ["Server: MP Handler Created: MPKilled"] call WarZones_fnc_Debug;
 
 // MP Handler: MPHit
-player addMPEventHandler ["MPHit", {_this execVM "WarZones_Handler_MPHit.sqf";}];
+player addMPEventHandler ["MPHit", {_this execVM "WarZones_hnd_MPHit.sqf";}];
 ["Server: MP Handler Created: MPHit"] call WarZones_fnc_Debug;
 
 // MP Handler: MPRespawn
-player addMPEventHandler ["MPRespawn",{_this execVM "WarZones_Handler_MPRespawn.sqf";}];
+player addMPEventHandler ["MPRespawn",{_this execVM "WarZones_hnd_MPRespawn.sqf";}];
 ["Server: MP Handler Created: MPRespawn"] call WarZones_fnc_Debug;
 
 // Local Handler on Server > On Player Connect
-onPlayerConnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerConnected.sqf""";
+onPlayerConnected "[_id, _uid, _name] execVM ""WarZones_hnd_PlayerConnected.sqf""";
 ["Server: Local Handler Created: OnPlayerConnected"] call WarZones_fnc_Debug;
 
 // Local Handler on Server > On Player Disconnect
-onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerDisconnected.sqf""";
+onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_hnd_PlayerDisconnected.sqf""";
 ["Server: Local Handler Created: OnPlayerDisconnected"] call WarZones_fnc_Debug;
 
 // Function: Create Sectors
@@ -51,9 +51,6 @@ onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_Handler_PlayerDisconn
 	Sleep 30;
 };
 ["Server: Spawned Loop: SetRank"] call WarZones_fnc_debug;
-
-// Add player Menu
-//_settings = [["Settings", "WarZones_Function_PlayerMenu.sqf"]] call CBA_fnc_addPlayerAction;
 
 // Initialize Mission-End Check
 [] spawn WarZones_fnc_CheckWin;

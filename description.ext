@@ -70,25 +70,6 @@ class Params
 		function = "BIS_fnc_paramDaytime";
  		isGlobal = 1;
 	};
-
-	class ViewDistance
-	{
-		title = "View distance (in metres)";
-		value[] = {500,1000,1500,2000,2500};
-		default = 2500;
-		function = "WarZones_fnc_ViewDistance";
-		isGlobal = 1;
-	};
-
-	class TerrainConfig
-	{
-		title = "Terrain";
-		texts[] = {"Low","Standart","High","Very High","Ultra"};
-		value[] = {50,25,12.5,6.25,3.125};
-		default = 12.5;
-		function = "WarZones_fnc_TerrainConfig";
-		isGlobal = 1;
-	};
 };
 
 class CfgFunctions
@@ -114,7 +95,7 @@ class CfgFunctions
 			class BriefingSkip
 			{
 				preInit = 1;
-				file = "WarZones_Function_BriefingSkipper.sqf";
+				file = "WarZones_fnc_BriefingSkipper.sqf";
 			};
 
 			class InitServer
@@ -123,31 +104,18 @@ class CfgFunctions
 			};
 		};
 
-		class MissionParameters
-		{
-			class ViewDistance
-			{
-				file = "WarZones_Param_ViewDistance.sqf";
-			};
-
-			class TerrainConfig
-			{
-				file = "WarZones_Param_TerrainConfig.sqf";
-			};
-		};
-
 		class DB
 		{
 			class DBCheckPlayer {
-				file = "WarZones_Function_DB_CheckPlayer.sqf";
+				file = "WarZones_fnc_DB_CheckPlayer.sqf";
 			};
 
 			class DBInit {
-				file = "WarZones_Function_DBInit.sqf";
+				file = "WarZones_fnc_DBInit.sqf";
 			};
 
 			class DB {
-				file = "WarZones_Function_DB.sqf";
+				file = "WarZones_fnc_DB.sqf";
 			};
 		};
 
@@ -155,7 +123,7 @@ class CfgFunctions
 		{
 			class SpawnAi
 			{
-				file = "WarZones_Function_SpawnAi.sqf";
+				file = "WarZones_fnc_SpawnAi.sqf";
 			};
 
 			class SpawnAiInfantry
@@ -188,39 +156,39 @@ class CfgFunctions
 		{
 			class CreateSectors
 			{
-				file = "WarZones_Function_CreateSectors.sqf";
+				file = "WarZones_fnc_CreateSectors.sqf";
 			};
 
 			class CheckWin
 			{
-				file = "WarZones_Function_CheckWin.sqf";
+				file = "WarZones_fnc_CheckWin.sqf";
 			};
 
 			class CreateDiary
 			{
-				file = "WarZones_Function_Diary.sqf";
+				file = "WarZones_fnc_Diary.sqf";
 			};
 
 			class DrawMap {
-				file = "WarZones_Map_DrawMap.sqf";
+				file = "WarZones_fnc_DrawMap.sqf";
 			};
 
 			class Tickets {
-				file = "WarZones_Function_Tickets.sqf";
+				file = "WarZones_fnc_Tickets.sqf";
 			};
 
 			class Debug {
-				file = "WarZones_Function_Debug.sqf";
+				file = "WarZones_fnc_Debug.sqf";
 			};
 
 			class CheckGear
 			{
-				file = "WarZones_Function_CheckGear.sqf";
+				file = "WarZones_fnc_CheckGear.sqf";
 			};
 
 			class SetRank
 			{
-				file = "WarZones_Function_SetRank.sqf";
+				file = "WarZones_fnc_SetRank.sqf";
 			};
 		};
 	};

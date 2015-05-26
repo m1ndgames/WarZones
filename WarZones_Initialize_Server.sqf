@@ -43,15 +43,6 @@ onPlayerDisconnected "[_id, _uid, _name] execVM ""WarZones_hnd_PlayerDisconnecte
 // Function: Loop > AiSpawn
 [] call WarZones_fnc_SpawnAi;
 
-[] spawn {
-	scopeName "SetRank";
-	while {true} do {
-		[] call WarZones_fnc_SetRank;
-	};
-	Sleep 30;
-};
-["Server: Spawned Loop: SetRank"] call WarZones_fnc_debug;
-
 // Initialize Mission-End Check
 [] spawn WarZones_fnc_CheckWin;
 

@@ -185,11 +185,6 @@ class CfgFunctions
 			{
 				file = "WarZones_fnc_CheckGear.sqf";
 			};
-
-			class SetRank
-			{
-				file = "WarZones_fnc_SetRank.sqf";
-			};
 		};
 	};
 };

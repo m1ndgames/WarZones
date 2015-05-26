@@ -8,7 +8,53 @@
 */
 
 _playerobject = _this select 0;
-[format ["Performing Gear Check for %1", name _playerobject]] call WarZones_fnc_Debug;
+_score = rating _playerobject;
+
+
+// Set Rank according to Score
+[format ["Performing Rank Check for %1 - Score: %2", name _playerobject, _score]] call WarZones_fnc_Debug;
+
+if (_score < 500) then {
+	_playerobject setUnitRank "PRIVATE";
+};
+
+if (_score > 500) then {
+	if (_score < 1500) then {
+		_playerobject setUnitRank "CORPORAL";
+	};
+};
+
+if (_score > 1500) then {
+	if (_score < 2500) then {
+		_playerobject setUnitRank "SERGEANT";
+	};
+};
+
+if (_score > 2500) then {
+	if (_score < 3500) then {
+		_playerobject setUnitRank "LIEUTENANT";
+	};
+};
+
+if (_score > 3500) then {
+	if (_score < 5000) then {
+		_playerobject setUnitRank "CAPTAIN";
+	};
+};
+
+if (_score > 5000) then {
+	if (_score < 7500) then {
+		_playerobject setUnitRank "MAJOR";
+	};
+};
+
+if (_score > 7500) then {
+	_playerobject setUnitRank "COLONEL";
+};
+
+
+
+[format ["Performing Gear Check for %1 - Rank: %2", name _playerobject, Rank _playerobject]] call WarZones_fnc_Debug;
 
 // Register Gear Templates according to player rank
 if (Rank _playerobject == "PRIVATE") then {

@@ -1,3 +1,5 @@
+if (!isServer) exitWith {};
+
 ///////////////////
 // Create Sentries
 _position = getPos base_independent_flagpole findEmptyPosition [1,10];

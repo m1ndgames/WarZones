@@ -1,3 +1,5 @@
+if (isServer) exitWith {};
+
 {
 	map_draw_spotted = _x;
 	map_draw_distance = [player, map_draw_spotted] call BIS_fnc_distance2D; // Get Distance from Player to _x

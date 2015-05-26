@@ -1,3 +1,5 @@
+if (!isServer) exitWith {};
+
 // 0 = [[50,"infantry"],[23872,17479],[22661,18267]]
 // 1 = [50,"infantry"]
 // 2 = 50

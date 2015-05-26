@@ -1,3 +1,5 @@
+if (!isServer) exitWith {};
+
 ["Started AAF Paradrop"] call WarZones_fnc_Debug;
 ["AAF HALO detected!","hint",true,true] call BIS_fnc_MP;
 

@@ -1,3 +1,5 @@
+if (!isServer) exitWith {};
+
 _Templates_Base_motorized = [
 	[ // Template 1
 		["B_MRAP_01_F",[-20,30,0],0,1,0,[0,0],"","",true,false],

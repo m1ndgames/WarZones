@@ -2400,7 +2400,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="120";
+							value="60";
 							parentCls="ACE_moduleReviveSettings";
 							typeName="maxReviveTime";
 						};
@@ -2470,7 +2470,7 @@ class Mission
 						items=9;
 						class Item0
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_moduleAdvancedMedicalSettings";
 							typeName="enableFor";
 						};

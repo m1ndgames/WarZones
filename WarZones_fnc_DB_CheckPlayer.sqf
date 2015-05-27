@@ -16,7 +16,6 @@ _playerobject = [_playeruid] call findPlayerViaUID;
 if (_dbuid == "none") then {
 	[format ["DB --> PlayerCheck -> Creating DB for new Player with UID %1", _playeruid]] call WarZones_fnc_Debug;
 	[_playeruid, ["uid", _playeruid],["joincount", 1],["joindate", date],["isbanned", 0],["score", 1]] call stats_set;
-//	[_playerobject, _playeruid] spawn WarZones_fnc_CheckGear;
 
 //	Found player data...
 } else {
@@ -24,5 +23,4 @@ if (_dbuid == "none") then {
 	_joincount = _joincount +1;
 	[_dbuid, "joincount", _joincount] call stats_set;
 	[format ["DB --> PlayerCheck -> Found Player with UID %1 - %2 joins", _dbuid, _joincount]] call WarZones_fnc_Debug;
-//	[_playerobject, _playeruid] spawn WarZones_fnc_CheckGear;
 };

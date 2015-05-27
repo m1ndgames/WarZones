@@ -23,4 +23,22 @@
 // Initialize Mission-End Check
 [] spawn WarZones_fnc_CheckWin;
 
+{
+	_x addEventHandler ["Killed",
+	{
+		_victim = _this select 0;
+		_killer = _this select 1;
+		_killeruid = getPlayerUID _killer;
+
+		if (!isPlayer _killer) exitWith {};
+		if (_killeruid == "") exitWith {};
+
+		_killerscore = [_killeruid, "score", 1] call stats_get;
+		_killerscore = _killerscore + 10;
+		[_killeruid, "score", _killerscore] call stats_set;
+		[format ["%1 was killed by UID %2 - Player score: %3", _victim, _killeruid, _killerscore]] call WarZones_fnc_Debug;
+		["Kill: +10 Pts.","hintSilent", _killer,true,true] call BIS_fnc_MP;
+	}];
+} forEach playableUnits;
+
 // End Server Init

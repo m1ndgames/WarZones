@@ -25,7 +25,6 @@ player addEventHandler ["HandleDamage", {_this exec "WarZones_hnd_Player_HandleD
 ["Client: Local Handler Created: HandleDamage"] call WarZones_fnc_Debug;
 
 // Add player Menu
-_settings = [["Settings", "WarZones_fnc_PlayerMenu.sqf"]] call CBA_fnc_addPlayerAction;
+//_settings = [["Settings", "WarZones_fnc_PlayerMenu.sqf"]] call CBA_fnc_addPlayerAction;
 
-// wait for BIS_fnc_init == true
 // End Client Init

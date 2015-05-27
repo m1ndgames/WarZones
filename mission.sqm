@@ -2140,7 +2140,7 @@ class Mission
 						items=1;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ACE_ModuleInteraction";
 							typeName="EnableTeamManagement";
 						};
@@ -2394,7 +2394,7 @@ class Mission
 						items=3;
 						class Item0
 						{
-							value="2";
+							value="1";
 							parentCls="ACE_moduleReviveSettings";
 							typeName="enableRevive";
 						};
@@ -2470,7 +2470,7 @@ class Mission
 						items=9;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ACE_moduleAdvancedMedicalSettings";
 							typeName="enableFor";
 						};

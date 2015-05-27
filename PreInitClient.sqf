@@ -8,6 +8,8 @@
 /
 */
 
+if (isServer) exitWith {};
+
 if (!isServer) then {
     if (!isNumber (missionConfigFile >> "briefing")) exitWith {};
     if (getNumber (missionConfigFile >> "briefing") == 1) exitWith {};
@@ -23,3 +25,7 @@ if (!isServer) then {
         };
     };
 };
+
+// Initialize dynamic groups - Client
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+["Initialized Dynamic Groups"] call WarZones_fnc_Debug;

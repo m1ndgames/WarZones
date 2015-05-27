@@ -92,15 +92,16 @@ class CfgFunctions
 	{
 		class Initialize
 		{
-			class BriefingSkip
+			class PreInitClient
 			{
 				preInit = 1;
-				file = "WarZones_fnc_BriefingSkipper.sqf";
+				file = "PreInitClient.sqf";
 			};
 
-			class InitServer
+			class PreInitServer
 			{
-				file = "WarZones_Initialize_Server.sqf";
+				preInit = 1;
+				file = "PreInitServer.sqf";
 			};
 		};
 
@@ -110,11 +111,8 @@ class CfgFunctions
 				file = "WarZones_fnc_DB_CheckPlayer.sqf";
 			};
 
-			class DBInit {
-				file = "WarZones_fnc_DBInit.sqf";
-			};
-
 			class DB {
+				preinit = 1;
 				file = "WarZones_fnc_DB.sqf";
 			};
 		};
@@ -171,10 +169,6 @@ class CfgFunctions
 
 			class DrawMap {
 				file = "WarZones_fnc_DrawMap.sqf";
-			};
-
-			class Tickets {
-				file = "WarZones_fnc_Tickets.sqf";
 			};
 
 			class Debug {

@@ -6,8 +6,6 @@ if (player != player) then {
 
 ["Client: Initializing..."] call WarZones_fnc_debug;
 
-[player] call WarZones_fnc_CheckGear;
-
 // Enable HUD
 showHUD true;
 ["Client: HUD enabled"] call WarZones_fnc_debug;
@@ -29,4 +27,5 @@ player addEventHandler ["HandleDamage", {_this exec "WarZones_hnd_Player_HandleD
 // Add player Menu
 _settings = [["Settings", "WarZones_fnc_PlayerMenu.sqf"]] call CBA_fnc_addPlayerAction;
 
+// wait for BIS_fnc_init == true
 // End Client Init

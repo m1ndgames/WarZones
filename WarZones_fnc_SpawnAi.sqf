@@ -20,6 +20,21 @@ if (Sector_Config_Area_Type == "helicopters") then {
 	[] call WarZones_fnc_SpawnAiHelicopters;
 };
 
+{
+	_x addEventHandler ["Killed",
+	{
+		_killer = _this select 1;
+		_killeruid = getPlayerUID _killer;
+		if (_killeruid == "") exitWith {};
+		_killerscore = [_killeruid, "score", 1] call stats_get;
+		_killerscore = _killerscore + 5;
+		[_killeruid, "score", _killerscore] call stats_set;
+		[format ["Ai killed by UID %1 - Player score: %2", _killeruid, _killerscore]] call WarZones_fnc_Debug;
+		["Kill: +5 Pts.","hintSilent", _killer,true,true] call BIS_fnc_MP;
+	}];
+} forEach UnitsBase;
+
+
 [] spawn {
 	sleep 30;
 	while {true} do {

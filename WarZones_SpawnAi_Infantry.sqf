@@ -14,12 +14,17 @@ _sentry3 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND
 _position = getPos base_independent_flagpole findEmptyPosition [50,75];
 _sentry4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-// Sentries find a house and dont patrol
+/*// Sentries find a house and dont patrol
 [_sentry1, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
 [_sentry2, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
 [_sentry3, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
 [_sentry4, getPos base_independent_flagpole, 50, 3, true] call CBA_fnc_taskDefend;
-
+*/
+// Orders: Patrol and search houses
+[_sentry1, getPos base_independent_flagpole, 50, 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_sentry2, getPos base_independent_flagpole, 50, 8, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_sentry3, getPos base_independent_flagpole, 50, 9, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
+[_sentry4, getPos base_independent_flagpole, 50, 10, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
 
 ///////////////////
 // Create Snipers

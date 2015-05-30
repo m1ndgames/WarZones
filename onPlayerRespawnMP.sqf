@@ -22,15 +22,11 @@ if (_playercorpse == objNull) then {
 			_playerobject setVariable ["Crewman",true];
 		} else {
 			if (_selected == "Medic") then {
-				_playerobject setVariable ["ace_medical_medicClass",1];
+				_playerobject setVariable ["Medic",true];
 			} else {
-				if (_selected == "Doctor") then {
-					_playerobject setVariable ["ace_medical_medicClass",2];
-				} else {
-					_playerobject setVariable ["Pilot",false];
-					_playerobject setVariable ["Crewman",false];
-					_playerobject setVariable ["ace_medical_medicClass",0];
-				};
+				_playerobject setVariable ["Pilot",false];
+				_playerobject setVariable ["Crewman",false];
+				_playerobject setVariable ["Medic",false];
 			};
 		};
 	};

@@ -10,11 +10,14 @@ if (!isPlayer _victim) then {
 	// Nothing
 } else {
 	if (_victim == _killer) then {
-		[format ["Handler > onPlayerKilled > %1 killed himself", _victim]] call WarZones_fnc_Debug;
+		[format ["Handler > onPlayerKilledMP > %1 killed himself", _victim]] call WarZones_fnc_Debug;
 		[_victim, _victimuid] spawn WarZones_fnc_CheckGear;
 
 	} else {
-		[format ["Handler > onPlayerKilled > %1 killed %2", _victim, _killer]] call WarZones_fnc_Debug;
+		[format ["Handler > onPlayerKilledMP > %1 was killed by %2", name _victim, name _killer]] call WarZones_fnc_Debug;
 		[_victim, _victimuid] spawn WarZones_fnc_CheckGear;
+		if (isPlayer _killer) then {
+			[_victim,_killer] spawn PlayerKilled;
+		};
 	};
 };

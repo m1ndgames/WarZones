@@ -10,7 +10,6 @@ if (!isServer) exitWith {};
 
 _playerobject = _this select 0;
 _playeruid = _this select 1;
-
 _playerscore = [_playeruid, "score", 7501] call stats_get;
 
 // Set Rank according to Score
@@ -51,7 +50,13 @@ if (_playerscore > 5000) then {
 };
 
 if (_playerscore > 7500) then {
-	_playerobject setUnitRank "COLONEL";
+	if (_playerscore < 10000) then {
+		_playerobject setUnitRank "COLONEL";
+	};
+};
+
+if (_playerscore > 10000) then {
+	_playerobject setUnitRank "GENERAL";
 };
 
 

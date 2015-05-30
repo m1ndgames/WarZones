@@ -7,12 +7,18 @@
 /
 */
 
+DAC_Zone = compile preprocessFile "DAC\Scripts\DAC_Init_Zone.sqf";
+DAC_Objects = compile preprocessFile "DAC\Scripts\DAC_Create_Objects.sqf";
+execVM "DAC\DAC_Config_Creator.sqf";
+
 //run on dedicated server only
 if (isDedicated) then {
 };
 
 //run on dedicated server or player host
 if (isServer) then {
+	// Function: Loop > AiSpawn
+	[] spawn WarZones_fnc_SpawnAi;
 };
 
 //run on all player clients incl. player host
@@ -34,3 +40,5 @@ if (!hasInterface) then {
 //run on headless clients only
 if (!hasInterface && !isDedicated) then {
 };
+
+if(!isServer) then {waitUntil{!isNull player}};

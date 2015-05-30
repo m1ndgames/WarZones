@@ -1,36 +1,13 @@
 // WarZones_Initialize_Server_Loop_AiSpawn.sqf
 /////////////////////////////////////////////////////////////////////////////////////
-INDEPENDENT_HQ = createCenter resistance;
-UnitsBase = [];
-UnitsReinforcements = [];
 
-if (Sector_Config_Area_Type == "infantry") then {
-	[] call WarZones_fnc_SpawnAiInfantry;
-};
-
-if (Sector_Config_Area_Type == "tanks") then {
-	[] call WarZones_fnc_SpawnAiTanks;
-};
-
-if (Sector_Config_Area_Type == "motorized") then {
-	[] call WarZones_fnc_SpawnAiMotorized;
-};
-
-if (Sector_Config_Area_Type == "helicopters") then {
-	[] call WarZones_fnc_SpawnAiHelicopters;
-};
+waitUntil {time > 20};
 
 {
-	_x addEventHandler ["Killed",
-	{
+	_x addeventhandler ["Killed",{
+		_victim = _this select 0;
 		_killer = _this select 1;
-		_killeruid = getPlayerUID _killer;
-		if (_killeruid == "") exitWith {};
-		_killerscore = [_killeruid, "score", 1] call stats_get;
-		_killerscore = _killerscore + 5;
-		[_killeruid, "score", _killerscore] call stats_set;
-		[format ["Ai killed by UID %1 - Player score: %2", _killeruid, _killerscore]] call WarZones_fnc_Debug;
-		["Kill: +5 Pts.","hintSilent", _killer,true,true] call BIS_fnc_MP;
+		[_victim,_killer] spawn AiKilled;
 	}];
 } forEach UnitsBase;
 

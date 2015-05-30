@@ -17,9 +17,9 @@ _Random_Sectors = _Templates_Sector call BIS_fnc_selectRandom;
 _Sector_Config = _Random_Sectors select 0;
 
 // Get Config Values
-_Sector_Config_Area_Size = _Sector_Config select 0;
+Sector_Config_Area_Size = _Sector_Config select 0;
 Sector_Config_Area_Type = _Sector_Config select 1;
-[format ["Sector Type: %1 - Sector Size: %2", Sector_Config_Area_Type, _Sector_Config_Area_Size]] call WarZones_fnc_Debug;
+[format ["Sector Type: %1 - Sector Size: %2", Sector_Config_Area_Type, Sector_Config_Area_Size]] call WarZones_fnc_Debug;
 
 // Get Sectors from Template
 _Sectors = [_Random_Sectors select 1, _Random_Sectors select 2];
@@ -51,7 +51,7 @@ base_blufor_flagpole = createVehicle ["Flag_NATO_F", [_location_blufor select 0,
 base_blufor_flagpole setVariable ["BIS_enableRandomization", false];
 
 // Modify the Sector Trigger
-sector_blufor_trigger setTriggerArea [_Sector_Config_Area_Size,_Sector_Config_Area_Size, 0, false ];
+sector_blufor_trigger setTriggerArea [Sector_Config_Area_Size,Sector_Config_Area_Size, 0, false ];
 sector_blufor_trigger setPos getPos base_blufor_flagpole;
 
 // Create Respawn Marker
@@ -66,7 +66,7 @@ base_opfor_flagpole = createVehicle ["Flag_CSAT_F", [_location_opfor_x, _locatio
 base_opfor_flagpole setVariable ["BIS_enableRandomization", false];
 
 // Modify the Sector Trigger
-sector_opfor_trigger setTriggerArea [_Sector_Config_Area_Size,_Sector_Config_Area_Size, 0, false ];
+sector_opfor_trigger setTriggerArea [Sector_Config_Area_Size,Sector_Config_Area_Size, 0, false ];
 sector_opfor_trigger setPos getPos base_opfor_flagpole;
 
 // Create Respawn Marker
@@ -98,6 +98,39 @@ base_independent_flagpole setVariable ["BIS_enableRandomization", false];
 
 _location_independent = getPos base_independent_flagpole;
 
+// Move aafzone triggers and delete unneeded ones (DAC)
+if (Sector_Config_Area_Type == "infantry") then {
+	aafzoneinf setPos _location_independent;
+	aafzoneinf setTriggerArea [180, 180, 0, true];
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzonemoto;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "tanks") then {
+	aafzonetank setPos _location_independent;
+	aafzonetank setTriggerArea [500, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonemoto;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "motorized") then {
+	aafzonemoto setPos _location_independent;
+	aafzonemoto setTriggerArea [500, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "helicopters") then {
+	aafzoneheli setPos _location_independent;
+	aafzoneheli setTriggerArea [1000, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzonemoto;
+};
+
 /* ToDo: Find another way to set up bases in a triangle. With this code AAF base could be spawned on water...
 
 // Add a 90° corner
@@ -120,7 +153,7 @@ base_independent_flagpole setPos [_location_independent_x,_location_independent_
 */
 
 // Modify the Sector Trigger
-sector_independent_trigger setTriggerArea [_Sector_Config_Area_Size,_Sector_Config_Area_Size, 0, false ];
+sector_independent_trigger setTriggerArea [Sector_Config_Area_Size,Sector_Config_Area_Size, 0, false ];
 sector_independent_trigger setPos getPos base_independent_flagpole;
 
 // Create Respawn Marker

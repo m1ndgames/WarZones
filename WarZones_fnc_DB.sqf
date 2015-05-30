@@ -1397,14 +1397,3 @@ stats_wipe = {
 };
 
 diag_log format["loading stats library complete"];
-
-findPlayerViaUID = {
-   private ["_player"];
-   _player = objNull;
-   {
-     if (getPlayerUID _x == _this select 0) exitWith {
-          _player = _x;
-     };
-   } forEach playableUnits;
-   _player;
-};

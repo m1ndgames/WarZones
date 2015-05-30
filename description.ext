@@ -59,6 +59,9 @@ disableChannels[]={2,3,6};
 // Define Mission Root
 __EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15])
 
+#define true 1
+#define false 0
+
 class Params
 {
 	class Time
@@ -69,6 +72,50 @@ class Params
 		default = 12;
 		function = "BIS_fnc_paramDaytime";
  		isGlobal = 1;
+	};
+};
+
+class RscTitles {
+	class Points5Box {
+		idd = 1;
+		duration = 2;
+		class controls {
+			class ExampleControl {
+				idc = 1;
+				type = 0;
+				style = 0;
+				x = 1;
+				y = 1;
+				w = 0.5;
+				h = 0.5;
+				font = "EtelkaNarrowMediumPro";
+				sizeEx = 0.1;
+				colorBackground[] = {0,0,0,0.3};
+				colorText[] = {1,1,1,1};
+				text = "+5 Points";
+			};
+		};
+	};
+
+	class Points10Box {
+		idd = 2;
+		duration = 2;
+		class controls {
+			class ExampleControl {
+				idc = 1;
+				type = 0;
+				style = 0;
+				x = 1;
+				y = 1;
+				w = 0.5;
+				h = 0.5;
+				font = "EtelkaNarrowMediumPro";
+				sizeEx = 0.1;
+				colorBackground[] = {0,0,0,0.3};
+				colorText[] = {1,1,1,1};
+				text = "+10 Points";
+			};
+		};
 	};
 };
 
@@ -102,6 +149,18 @@ class CfgFunctions
 			{
 				preInit = 1;
 				file = "PreInitServer.sqf";
+			};
+
+			class PreInitAll
+			{
+				preInit = 1;
+				file = "PreInit.sqf";
+			};
+
+			class Misc
+			{
+				preinit = 1;
+				file = "WarZones_fnc_Misc.sqf";
 			};
 		};
 
@@ -171,6 +230,10 @@ class CfgFunctions
 				file = "WarZones_fnc_DrawMap.sqf";
 			};
 
+			class Draw3D {
+				file = "WarZones_fnc_Draw3D.sqf";
+			};
+
 			class Debug {
 				file = "WarZones_fnc_Debug.sqf";
 			};
@@ -180,37 +243,6 @@ class CfgFunctions
 				file = "WarZones_fnc_CheckGear.sqf";
 			};
 		};
-	};
-};
-
-
-
-class cfgDebriefingSections
-{
-	class Points_Player
-	{
-		title = "Player Points";
-		variable = ["readplayer",player,nil] call WarZones_fnc_score;
-	};
-	class Points_NATO
-	{
-		title = "NATO Team Points";
-		variable = ["readside",blufor,nil] call WarZones_fnc_score;
-	};
-	class Points_CSAT
-	{
-		title = "CSAT Team Points";
-		variable = ["readside",opfor,nil] call WarZones_fnc_score;
-	};
-	class Tickets_NATO
-	{
-		title = "NATO Tickets left";
-		variable = ["read",blufor,nil] call WarZones_fnc_Tickets;
-	};
-	class Tickets_CSAT
-	{
-		title = "CSAT Tickets left";
-		variable = ["read",opfor,nil] call WarZones_fnc_Tickets;
 	};
 };
 
@@ -249,65 +281,65 @@ class CfgUnitInsignia
 	class Private
 	{
 		displayName = "Private";
-		author = "Bohemia Interactive";
-		texture = "pics\markers_3d\Private.paa";
-		textureVehicle = "\pics\markers_3d\private.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\private.paa";
+		textureVehicle = "pics\markers_3d\private.paa";
 	};
 
 		class Corporal
 	{
 		displayName = "Corporal";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Corporal.paa";
-		textureVehicle = "\pics\markers_3d\Corporal.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\corporal.paa";
+		textureVehicle = "pics\markers_3d\corporal.paa";
 	};
 
 		class Sergeant
 	{
 		displayName = "Sergeant";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Sergeant.paa";
-		textureVehicle = "\pics\markers_3d\Sergeant.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\sergeant.paa";
+		textureVehicle = "pics\markers_3d\sergeant.paa";
 	};
 
 		class Lieutenant
 	{
 		displayName = "Lieutenant";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Lieutenant.paa";
-		textureVehicle = "\pics\markers_3d\Lieutenant.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\lieutenant.paa";
+		textureVehicle = "pics\markers_3d\lieutenant.paa";
 	};
 
 		class Captain
 	{
 		displayName = "Captain";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Captain.paa";
-		textureVehicle = "\pics\markers_3d\Captain.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\captain.paa";
+		textureVehicle = "pics\markers_3d\captain.paa";
 	};
 
 		class Major
 	{
 		displayName = "Major";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Major.paa";
-		textureVehicle = "\pics\markers_3d\Major.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\major.paa";
+		textureVehicle = "pics\markers_3d\major.paa";
 	};
 
 		class Colonel
 	{
 		displayName = "Colonel";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\Colonel.paa";
-		textureVehicle = "\pics\markers_3d\Colonel.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\colonel.paa";
+		textureVehicle = "pics\markers_3d\colonel.paa";
 	};
 
 		class General
 	{
 		displayName = "General";
-		author = "Bohemia Interactive";
-		texture = "\pics\markers_3d\General.paa";
-		textureVehicle = "\pics\markers_3d\General.paa";
+		author = "m1ndfuck";
+		texture = "pics\markers_3d\general.paa";
+		textureVehicle = "pics\markers_3d\general.paa";
 	};
 };
 
@@ -317,7 +349,7 @@ class CfgUnitInsignia
 class CfgRespawnInventory {
 	class Rifleman {
 		displayName = "Rifleman";
-		icon = pics\markers_3d\Private.paa;
+		icon = pics\markers_3d\private.paa;
 
 		weapons[] = {
 			Binocular,
@@ -337,31 +369,13 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			HandGrenade,
-			ACE_MapTools,
-			ACE_CableTie,
-			ACE_CableTie
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
 			H_HelmetB,
-			optic_Hamr,
+			optic_ACO_grn,
 			NVGoggles,
 			G_Tactical_Clear,
 			ItemGPS,
@@ -376,7 +390,7 @@ class CfgRespawnInventory {
 
 	class Grenadier {
 		displayName = "Grenadier";
-		icon = pics\markers_3d\Corporal.paa;
+		icon = pics\markers_3d\corporal.paa;
 
 		weapons[] = {
 			Binocular,
@@ -396,26 +410,10 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			HandGrenade,
 			HandGrenade,
 			3Rnd_HE_Grenade_shell,
-			ACE_MapTools
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -435,7 +433,7 @@ class CfgRespawnInventory {
 
 	class Medic {
 		displayName = "Medic";
-		icon = pics\markers_3d\Corporal.paa;
+		icon = pics\markers_3d\corporal.paa;
 
 		weapons[] = {
 			Binocular,
@@ -449,84 +447,8 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_EarPlugs,
-			ACE_MapTools,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine
+			HandGrenade,
+			Medikit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -546,7 +468,7 @@ class CfgRespawnInventory {
 
 	class Autorifleman {
 		displayName = "Autorifleman";
-		icon = pics\markers_3d\Sergeant.paa;
+		icon = pics\markers_3d\sergeant.paa;
 
 		weapons[] = {
 			Binocular,
@@ -562,29 +484,13 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			HandGrenade,
-			ACE_MapTools
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
 			H_HelmetB,
-			optic_ACO_grn,
+			optic_Hamr,
 			NVGoggles,
 			G_Tactical_Clear,
 			ItemGPS,
@@ -599,7 +505,7 @@ class CfgRespawnInventory {
 
 	class ATSoldier {
 		displayName = "Anti Tank Soldier";
-		icon = pics\markers_3d\Sergeant.paa;
+		icon = pics\markers_3d\sergeant.paa;
 
 		weapons[] = {
 			Laserdesignator,
@@ -620,26 +526,11 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			Titan_AP,
 			Titan_AT,
 			Titan_AT,
-			Laserbatteries
+			Laserbatteries,
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -658,7 +549,7 @@ class CfgRespawnInventory {
 	};
 	class AASoldier {
 		displayName = "Anti Air Soldier";
-		icon = pics\markers_3d\Sergeant.paa;
+		icon = pics\markers_3d\sergeant.paa;
 
 		weapons[] = {
 			Laserdesignator,
@@ -679,27 +570,11 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			Titan_AA,
 			Titan_AA,
 			Titan_AA,
-			ACE_MapTools,
-			Laserbatteries
+			Laserbatteries,
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -719,7 +594,7 @@ class CfgRespawnInventory {
 
 	class Sapper {
 		displayName = "Sapper";
-		icon = pics\markers_3d\Lieutenant.paa;
+		icon = pics\markers_3d\lieutenant.paa;
 
 		weapons[] = {
 			Binocular,
@@ -739,32 +614,14 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
-			ACE_DefusalKit,
 			ATMine_Range_Mag,
 			APERSMine_Range_Mag,
 			APERSMine_Range_Mag,
-			ACE_MapTools,
-			ACE_Clacker,
-			ACE_DefusalKit,
 			MineDetector,
 			SatchelCharge_Remote_Mag,
-			SatchelCharge_Remote_Mag
+			SatchelCharge_Remote_Mag,
+			FirstAidKit,
+			ToolKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -784,10 +641,10 @@ class CfgRespawnInventory {
 
 	class Sniper {
 		displayName = "Sniper";
-		icon = pics\markers_3d\Lieutenant.paa;
+		icon = pics\markers_3d\lieutenant.paa;
 
 		weapons[] = {
-			ACE_Vector,
+			Laserdesignator,
 			srifle_LRR_camo_F,
 			hgun_P07_F
 		};
@@ -805,25 +662,8 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
-			ACE_ATragMX,
-			ACE_Kestrel4500,
-			ACE_MapTools
+			HandGrenade,
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -834,7 +674,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ACE_Altimeter,
+			ItemWatch,
 			ItemRadio
 		};
 		uniformClass = U_B_FullGhillie_sard;
@@ -843,10 +683,10 @@ class CfgRespawnInventory {
 
 	class Marksmen {
 		displayName = "Marksmen";
-		icon = pics\markers_3d\Captain.paa;
+		icon = pics\markers_3d\captain.paa;
 
 		weapons[] = {
-			ACE_Vector,
+			Laserdesignator,
 			srifle_DMR_02_camo_F,
 			hgun_P07_F
 		};
@@ -862,25 +702,8 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
-			ACE_ATragMX,
-			ACE_Kestrel4500,
-			ACE_MapTools
+			HandGrenade,
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_TacVest_camo,
@@ -895,7 +718,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ACE_Altimeter,
+			ItemWatch,
 			ItemRadio
 		};
 		uniformClass = U_B_CombatUniform_mcam_vest;
@@ -904,7 +727,7 @@ class CfgRespawnInventory {
 
 	class Recon {
 		displayName = "Recon";
-		icon = pics\markers_3d\Captain.paa;
+		icon = pics\markers_3d\captain.paa;
 
 		weapons[] = {
 			Laserdesignator,
@@ -921,30 +744,8 @@ class CfgRespawnInventory {
 			30Rnd_45ACP_Mag_SMG_01,
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
-			ACE_MapTools,
-			ACE_microDAGR,
-			ACE_wirecutter,
 			Laserbatteries,
-			ACE_key_lockpick,
-			ACE_M84,
-			ACE_CableTie,
-			ACE_CableTie
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_TacVest_camo,
@@ -966,7 +767,7 @@ class CfgRespawnInventory {
 
 	class Pilot {
 		displayName = "Pilot";
-		icon = pics\markers_3d\Major.paa;
+		icon = pics\markers_3d\major.paa;
 
 		weapons[] = {
 			SMG_01_F
@@ -977,23 +778,8 @@ class CfgRespawnInventory {
 			30Rnd_45ACP_Mag_SMG_01
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
-			ACE_MapTools
+			HandGrenade,
+			FirstAidKit
 			};
 		linkedItems[] = {
 			H_PilotHelmetFighter_B,
@@ -1001,7 +787,7 @@ class CfgRespawnInventory {
 			ItemGPS,
 			ItemMap,
 			ItemCompass,
-			ACE_Altimeter,
+			ItemWatch,
 			ItemRadio
 		};
 		uniformClass = U_B_PilotCoveralls;
@@ -1010,7 +796,7 @@ class CfgRespawnInventory {
 
 	class Crewman {
 		displayName = "Crewman";
-		icon = pics\markers_3d\Major.paa;
+		icon = pics\markers_3d\major.paa;
 
 		weapons[] = {
 			Binocular,
@@ -1030,25 +816,9 @@ class CfgRespawnInventory {
 			16Rnd_9x21_Mag
 			};
 		items[] = {
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_morphine,
-			ACE_tourniquet,
-			ACE_EarPlugs,
 			HandGrenade,
 			HandGrenade,
-			ACE_MapTools
+			FirstAidKit
 			};
 		linkedItems[] = {
 			V_Chestrig_rgr,
@@ -1065,119 +835,5 @@ class CfgRespawnInventory {
 		};
 		uniformClass = U_B_CombatUniform_mcam;
 		backpack =  B_AssaultPack_rgr;
-	};
-	class Doctor {
-		displayName = "Doctor";
-		icon = pics\markers_3d\Major.paa;
-
-		weapons[] = {
-			Binocular,
-			SMG_02_F,
-			hgun_P07_F
-		};
-		magazines[] = {
-			30Rnd_9x21_Mag,
-			30Rnd_9x21_Mag,
-			30Rnd_9x21_Mag,
-			16Rnd_9x21_Mag
-			};
-		items[] = {
-			ACE_EarPlugs,
-			ACE_MapTools,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_fieldDressing,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_elasticBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_packingBandage,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_quikclot,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_tourniquet,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_salineIV_500,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_morphine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_epinephrine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_atropine,
-			ACE_surgicalKit,
-			ACE_surgicalKit,
-			ACE_personalAidKit,
-			ACE_personalAidKit
-			};
-		linkedItems[] = {
-			V_Chestrig_rgr,
-			H_HelmetB,
-			optic_Holosight_smg,
-			NVGoggles,
-			G_Tactical_Clear,
-			ItemGPS,
-			ItemMap,
-			ItemCompass,
-			ItemWatch,
-			ItemRadio
-		};
-		uniformClass = U_B_CombatUniform_mcam;
-		backpack = B_AssaultPack_rgr;
 	};
 };

@@ -2,17 +2,17 @@ if (!isServer) exitWith {};
 
 ///////////////////
 // Create Sentries
-_position = getPos base_independent_flagpole findEmptyPosition [1,10];
-_sentry1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_sentry1pos = getPos base_independent_flagpole findEmptyPosition [1,10];
+_sentry1 = [_sentry1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [10,25];
-_sentry2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_sentry2pos = getPos base_independent_flagpole findEmptyPosition [10,25];
+_sentry2 = [_sentry2pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [25,50];
-_sentry3 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_sentry3pos = getPos base_independent_flagpole findEmptyPosition [25,50];
+_sentry3 = [_sentry3pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [50,75];
-_sentry4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_sentry4pos = getPos base_independent_flagpole findEmptyPosition [50,75];
+_sentry4 = [_sentry4pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
 // Sentries find a house and dont patrol
 [_sentry1, getPos base_independent_flagpole, 150, 3, true] call CBA_fnc_taskDefend;
@@ -23,11 +23,11 @@ _sentry4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND
 
 ///////////////////
 // Create Snipers
-_position = getPos base_independent_flagpole findEmptyPosition [1,10];
-_sniper1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
+_sniper1pos = getPos base_independent_flagpole findEmptyPosition [1,10];
+_sniper1 = [_sniper1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [50,75];
-_sniper2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
+_sniper2pos = getPos base_independent_flagpole findEmptyPosition [50,75];
+_sniper2 = [_sniper2pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_SniperTeam")] call BIS_fnc_spawnGroup;
 
 // Snipers look for bigger houses in a bigger area, they dont patrol
 [_sniper1, getPos base_independent_flagpole, 500, 15, true] call CBA_fnc_taskDefend; // Big white House in Kavala
@@ -36,17 +36,17 @@ _sniper2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND
 
 ///////////////////
 // Create patrol
-_position = getPos base_independent_flagpole findEmptyPosition [1,25];
-_patrol1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_patrol1pos = getPos base_independent_flagpole findEmptyPosition [1,25];
+_patrol1 = [_patrol1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [1,25];
-_patrol2 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_patrol2pos = getPos base_independent_flagpole findEmptyPosition [1,25];
+_patrol2 = [_patrol2pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [25,50];
-_patrol3 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_patrol3pos = getPos base_independent_flagpole findEmptyPosition [25,50];
+_patrol3 = [_patrol3pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
-_position = getPos base_independent_flagpole findEmptyPosition [25,50];
-_patrol4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
+_patrol4pos = getPos base_independent_flagpole findEmptyPosition [25,50];
+_patrol4 = [_patrol4pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSentry")] call BIS_fnc_spawnGroup;
 
 // Orders: Patrol and search houses
 [_patrol1, getPos base_independent_flagpole, 150, 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_taskSearchHouse", [3,7,15]] call CBA_fnc_taskPatrol;
@@ -57,22 +57,22 @@ _patrol4 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND
 
 ///////////////////
 // Create UAV Team
-_position = getPos base_independent_flagpole findEmptyPosition [1,50];
-_uav1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "SpecOps" >> "HAF_SmallTeam_UAV")] call BIS_fnc_spawnGroup;
+_uav1pos = getPos base_independent_flagpole findEmptyPosition [1,50];
+_uav1 = [_uav1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "SpecOps" >> "HAF_SmallTeam_UAV")] call BIS_fnc_spawnGroup;
 [_uav1, getPos base_independent_flagpole, 150, 3, false] call CBA_fnc_taskDefend;
 
 
 ///////////////////
 // Create Mech Anti Air Team
-_position = getPos base_independent_flagpole findEmptyPosition [1,50];
-_mechaa1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Mechanized" >> "HAF_MechInf_AA")] call BIS_fnc_spawnGroup;
+_mechaa1pos = getPos base_independent_flagpole findEmptyPosition [1,50];
+_mechaa1 = [_mechaa1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Mechanized" >> "HAF_MechInf_AA")] call BIS_fnc_spawnGroup;
 [_mechaa1, getPos base_independent_flagpole, 150, 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "", [3,7,15]] call CBA_fnc_taskPatrol;
 
 
 ///////////////////
 // Create Motorized MG Team
-_position = getPos base_independent_flagpole findEmptyPosition [1,50];
-_motmg1 = [_position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Motorized_MTP" >> "HAF_MotInf_MGTeam")] call BIS_fnc_spawnGroup;
+_motmg1pos = getPos base_independent_flagpole findEmptyPosition [1,50];
+_motmg1 = [_motmg1pos, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Motorized_MTP" >> "HAF_MotInf_MGTeam")] call BIS_fnc_spawnGroup;
 [_motmg1, getPos base_independent_flagpole, 150, 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "", [3,7,15]] call CBA_fnc_taskPatrol;
 
 

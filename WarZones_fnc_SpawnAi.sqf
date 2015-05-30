@@ -30,7 +30,6 @@ if (Sector_Config_Area_Type == "helicopters") then {
 		_killerscore = _killerscore + 5;
 		[_killeruid, "score", _killerscore] call stats_set;
 		[format ["Ai killed by UID %1 - Player score: %2", _killeruid, _killerscore]] call WarZones_fnc_Debug;
-		["Kill: +5 Pts.","hintSilent", _killer,true,true] call BIS_fnc_MP;
 	}];
 } forEach UnitsBase;
 

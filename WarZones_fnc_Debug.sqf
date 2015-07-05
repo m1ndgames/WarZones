@@ -3,10 +3,9 @@
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
 /  File: WarZones_Function_Debug.sqf
-/  Description: Function handles Debug Messages to the Logfile or Systemchat
+/  Description: Function handles Debug Messages via Logfile/Hint/Systemchat
 /
 */
-
 _input = _this select 0;
 
 // Show Debug messages?
@@ -34,3 +33,5 @@ if (usedebug == "yes") then {
 		player globalChat format["----> WarZones Debug:  %1", _input];
 	};
 };
+
+// End of File: WarZones_fnc_Debug.sqf

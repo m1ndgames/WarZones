@@ -158,8 +158,14 @@ class CfgFunctions
 
 	class WarZones
 	{
-		class Initialize
+		class Functions
 		{
+			class PreInit
+			{
+				preInit = 1;
+				file = "PreInit.sqf";
+			};
+
 			class PreInitClient
 			{
 				preInit = 1;
@@ -172,48 +178,28 @@ class CfgFunctions
 				file = "PreInitServer.sqf";
 			};
 
-			class Misc
+			class Functions
 			{
 				preinit = 1;
-				file = "WarZones_fnc_Misc.sqf";
+				file = "WarZones_fnc_Functions.sqf";
 			};
-		};
 
-		class DB
-		{
+			class Sectors
+			{
+				file = "WarZones_fnc_Sectors.sqf";
+			};
+
 			class DBCheckPlayer {
-				file = "WarZones_fnc_DB_CheckPlayer.sqf";
+				file = "WarZones_fnc_DBCheckPlayer.sqf";
 			};
 
-			class DB {
-				preinit = 1;
-				file = "WarZones_fnc_DB.sqf";
+			class Debug {
+				file = "WarZones_fnc_Debug.sqf";
 			};
-		};
 
-		class SpawnAi
-		{
-			class SpawnAi
+			class Gear
 			{
-				file = "WarZones_fnc_SpawnAi.sqf";
-			};
-
-			class SpawnAiReinforcements
-			{
-				file = "WarZones_SpawnAi_Reinforcements.sqf";
-			};
-		};
-
-		class Misc
-		{
-			class CreateSectors
-			{
-				file = "WarZones_fnc_CreateSectors.sqf";
-			};
-
-			class CheckWin
-			{
-				file = "WarZones_fnc_CheckWin.sqf";
+				file = "WarZones_fnc_Gear.sqf";
 			};
 
 			class CreateDiary
@@ -227,15 +213,6 @@ class CfgFunctions
 
 			class Draw3D {
 				file = "WarZones_fnc_Draw3D.sqf";
-			};
-
-			class Debug {
-				file = "WarZones_fnc_Debug.sqf";
-			};
-
-			class CheckGear
-			{
-				file = "WarZones_fnc_CheckGear.sqf";
 			};
 		};
 	};

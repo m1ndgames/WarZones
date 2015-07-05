@@ -1,3 +1,11 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Template_Bases.hpp
+/  Description: This Template file contains the Base Templates for each Style. (infantry/motorized/tanks/helicopters)
+/
+*/
 if (!isServer) exitWith {};
 
 _Templates_Base_motorized = [
@@ -583,3 +591,4 @@ _Templates_Base_tanks = [
 	]
 ];
 
+// End of File: WarZones_Template_Bases.hpp

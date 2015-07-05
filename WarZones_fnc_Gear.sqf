@@ -2,8 +2,9 @@
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
-/  File: WarZones_Function_Gear.sqf
-/  Description: Adds loadouts according to Rank
+/  File: WarZones_fnc_Gear.sqf
+/  Description: This function reads the players points from the database and sets his rank accordingly.
+/				After rank declaration, shoulder patches and the gear loadout are set
 /
 */
 if (!isServer) exitWith {};
@@ -186,3 +187,5 @@ if (Rank _playerobject == "GENERAL") then {
 	[_playerobject,"Crewman"] call BIS_fnc_addRespawnInventory;
 	[_playerobject,"Doctor"] call BIS_fnc_addRespawnInventory;
 };
+
+// End of File: WarZones_fnc_Gear.sqf

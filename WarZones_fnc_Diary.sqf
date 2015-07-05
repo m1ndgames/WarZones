@@ -6,6 +6,7 @@
 /  Description: Creates initial Diary entries.
 /
 */
+if (isServer) exitWith {};
 
 player createDiaryRecord["Diary",
 	["WarZones - Credits",
@@ -94,3 +95,5 @@ player createDiaryRecord["Diary",
 		"
 	]
 ];
+
+// End of File: WarZones_fnc_Diary.sqf

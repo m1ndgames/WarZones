@@ -1,12 +1,16 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Template_Sectors.hpp
+/  Description: This Template file contains the Sector Position Templates for each Style. (infantry/motorized/tanks/helicopters)
+/
+*/
 if (!isServer) exitWith {};
-
-// 0 = [[50,"infantry"],[23872,17479],[22661,18267]]
-// 1 = [50,"infantry"]
-// 2 = 50
 
 _Templates_Sector = [
 	[
-		[15,"infantry"],[3781.97,13004.3],[3243.8,12973.7]
+		[15,"infantry"],[3694.1985,13580.796],[3579.7014,12785.775]
 	]/*,
 	[
 		[25,"motorized"],[6473.0454,15574.088],[7383.9238,18011.813]
@@ -18,3 +22,5 @@ _Templates_Sector = [
 		[25,"tanks"],[21146.76,16639.734],[16945.223,16085.362]
 	]*/
 ];
+
+// End of File: WarZones_Template_Sectors.hpp

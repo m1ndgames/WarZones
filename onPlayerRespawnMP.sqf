@@ -1,3 +1,11 @@
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: onPlayerRespawnMP.sqf
+/  Description: "Respawn" MPEventhandler - Handles Player respawns
+/
+*/
 if (!isServer) exitWith {};
 
 _playerobject = _this select 0;
@@ -31,3 +39,5 @@ if (_playercorpse == objNull) then {
 		};
 	};
 };
+
+// End of File: onPlayerRespawnMP.sqf

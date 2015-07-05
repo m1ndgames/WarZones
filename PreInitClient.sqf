@@ -2,12 +2,10 @@
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
-/  File: WarZones_Function_BriefingSkipper.sqf
-/  Description: "Dirty Hack" to skip the Briefing in MP, credits go to KK's Blog :)
-/               It is called pre-init via description.ext
+/  File: PreInitClient.sqf
+/  Description: This init script is executed by Players before the mission is started. (PreInit)
 /
 */
-
 if (isServer) exitWith {};
 
 if (!isServer) then {
@@ -29,3 +27,5 @@ if (!isServer) then {
 // Initialize dynamic groups - Client
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 ["Initialized Dynamic Groups"] call WarZones_fnc_Debug;
+
+// End of File: PreInitClient.sqf

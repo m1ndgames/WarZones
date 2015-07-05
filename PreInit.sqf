@@ -2,10 +2,15 @@
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
-/  File: init.sqf
-/  Description: This init script is executed by everyone when the mission is started. (Before briefing screen)
+/  File: PreInit.sqf
+/  Description: This init script is executed by everyone before the mission is started. (PreInit)
 /
 */
+if(!isServer) then {waitUntil{!isNull player}};
+
+DAC_Zone = compile preprocessFile "DAC\Scripts\DAC_Init_Zone.sqf";
+DAC_Objects = compile preprocessFile "DAC\Scripts\DAC_Create_Objects.sqf";
+execVM "DAC\DAC_Config_Creator.sqf";
 
 //run on dedicated server only
 if (isDedicated) then {
@@ -13,6 +18,8 @@ if (isDedicated) then {
 
 //run on dedicated server or player host
 if (isServer) then {
+	// Function: Create Sectors
+	[] spawn WarZones_fnc_Sectors;
 };
 
 //run on all player clients incl. player host
@@ -35,4 +42,4 @@ if (!hasInterface) then {
 if (!hasInterface && !isDedicated) then {
 };
 
-// End of File: init.sqf
+// End of File: PreInit.sqf

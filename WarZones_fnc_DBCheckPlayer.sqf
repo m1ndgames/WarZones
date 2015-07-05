@@ -2,8 +2,8 @@
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
-/  File: WarZones_Function_DB_PlayerCheck.sqf
-/  Description: This function checks a player, if new, he's added to the db.
+/  File: init.sqf
+/  Description: This init script is executed by everyone when the mission is started. (Before briefing screen)
 /
 */
 if (!isServer) exitWith {};
@@ -24,3 +24,5 @@ if (_dbuid == "none") then {
 	[_dbuid, "joincount", _joincount] call stats_set;
 	[format ["DB --> PlayerCheck -> Found Player with UID %1 - %2 joins", _dbuid, _joincount]] call WarZones_fnc_Debug;
 };
+
+// End of File: WarZones_fnc_DBCheckPlayer.sqf

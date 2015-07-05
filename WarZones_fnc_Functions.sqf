@@ -1,4 +1,81 @@
-if (!isServer) exitWith {};
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: WarZones_Functions.sqf
+/  Description: Various Functions used in WarZones
+/
+*/
+
+																	/////////////////////
+																	// Client & Server //
+																	/////////////////////
+
+// Function to create the +Point info Boxes
+PointsBox = {
+	_val = _this select 0;
+	if (_val == 5) then {
+		cutRsc ["Points5Box","PLAIN"];
+	};
+	if (_val == 10) then {
+		cutRsc ["Points10Box","PLAIN"];
+	};
+};
+
+// Function to create the Reinforcements info Box
+ReinforcementsBox = {
+	cutRsc ["ReinforcementsBox","PLAIN"];
+};
+
+																	/////////////////
+																	// Server only //
+																	/////////////////
+																if (!isServer) exitWith {};
+
+//////////////////////////////
+// Finds a player via his UID
+// ToDo: rewrite!
+findPlayerViaUID = {
+   private ["_player"];
+   _player = objNull;
+   {
+     if (getPlayerUID _x == _this select 0) exitWith {
+          _player = _x;
+     };
+   } forEach playableUnits;
+   _player;
+};
+
+// Is called via "Killed" Eventhandler.
+// Adds Points to a Player Score, writes it to the Database and shows the Points info Box
+AiKilled = {
+	_killer = _this select 1;
+	_killeruid = getPlayerUID _killer;
+	if (_killeruid == "") exitWith {};
+	_killerscore = [_killeruid, "score", 1] call stats_get;
+	_killerscore = _killerscore + 5;
+	[_killeruid, "score", _killerscore] call stats_set;
+	[format ["Ai killed by UID %1 - Player score: %2", _killeruid, _killerscore]] call WarZones_fnc_Debug;
+	[{[5] call PointsBox;},"BIS_fnc_spawn", _killer, true, true] call BIS_fnc_MP;
+};
+
+// Is called via "MPKilled" Eventhandler.
+// Adds Points to a Player Score, writes it to the Database and shows the Points info Box
+PlayerKilled = {
+	_victim = _this select 0;
+	_killer = _this select 1;
+	_killeruid = getPlayerUID _killer;
+	if (_killeruid == "") exitWith {};
+	_killerscore = [_killeruid, "score", 1] call stats_get;
+	_killerscore = _killerscore + 10;
+	[_killeruid, "score", _killerscore] call stats_set;
+	[format ["%1 killed by %2 - Player score: %3", name _victim, name _killer, _killerscore]] call WarZones_fnc_Debug;
+	[{[10] call PointsBox;},"BIS_fnc_spawn", _killer, true, true] call BIS_fnc_MP;
+};
+
+
+/////////////////////
+// Database Functions
 
 //null abstraction
 #define _undefined objNull
@@ -95,7 +172,6 @@ if (undefined(_this) ||{ \
 //Assign argument at index o to variable v, else default to nil
 #define ARGV2(o,v) ARGV3(o,v,nil)
 
-
 //Assign argument at index o to variable v if it's of type t, else exit with d
 #define ARGVX4(o,v,t,d) \
 private[#v]; \
@@ -124,9 +200,7 @@ if (undefined(_this) ||{ \
 
 #define isClient not(isServer) || {isServer && not(isDedicated)}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-diag_log format["loading log library ..."];
+["loading log library ..."] call WarZones_fnc_Debug;
 
 //Log levels (from highest to lowest)
 LOG_SEVERE_LEVEL=6;
@@ -247,7 +321,6 @@ log_rpt = {
   diag_log (_component + ": " + _level_str + ": " + _message);
 };
 
-
 /**
 * Prints a logging message at SEVERE level for the specified component
 * @param _component_name (String) - Name of the component that is logging the message
@@ -311,12 +384,11 @@ log_finest = {
   ([LOG_FINEST_LEVEL] + _this) call log_rpt
 };
 
-
-diag_log format["loading log library complete"];
+["loading log library complete"] call WarZones_fnc_Debug;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-diag_log format["loading sock library ..."];
+["loading sock library ..."] call WarZones_fnc_Debug;
 
 //Some wrappers for logging
 sock_log_severe = {
@@ -344,11 +416,8 @@ sock_log_set_level = {
   ["sock", _this] call log_set_level;
 };
 
-
 //Set default logging level for this component
 LOG_INFO_LEVEL call sock_log_set_level;
-
-
 
 sock_raw = {
   _this = _this select 0;
@@ -394,7 +463,6 @@ sock_raw = {
 
   ("RAW:" + str(_holder select 0))
 };
-
 
 /**
 * This function is used for creating JSON hash/object from an array with a set of key-value pairs
@@ -467,7 +535,6 @@ sock_get_response = {
   OR(_response,nil)
 };
 
-
 /**
 * This function sends a JSON-RPC request using the sock.dll/sock.so extension.
 *
@@ -489,7 +556,6 @@ sock_rpc = {
 
   (_this call sock_rpc_local)
 };
-
 
 sock_rpc_remote = {
   if (isNil "_this") exitWith {nil};
@@ -534,9 +600,6 @@ sock_rpc_remote = {
   (_response select 0)
 };
 
-
-
-
 sock_rpc_remote_request_listener = {
   if (isNil "_this") exitWith {nil};
   format["%1 call sock_rpc_remote_request_listener;", _this] call sock_log_finest;
@@ -566,8 +629,6 @@ sock_rpc_remote_request_listener = {
   _client_id publicVariableClient _var_name;
   missionNamespace setVariable [_var_name, nil];
 };
-
-
 
 sock_rpc_local = {
   if (isNil "_this") exitWith {nil};
@@ -624,9 +685,6 @@ sock_rpc_local = {
   OR(_default,nil)
 };
 
-
-
-
 sock_init = {
   init(_flag_name, "sock_init_complete");
 
@@ -649,14 +707,12 @@ sock_init = {
   };
 };
 
-
 [] call sock_init;
 
-diag_log format["loading sock library complete"];
+["loading sock library complete"] call WarZones_fnc_Debug;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-diag_log format["loading stats library ..."];
+["loading stats library ..."] call WarZones_fnc_Debug;
 
 //Some wrappers for logging
 stats_log_severe = {
@@ -687,10 +743,8 @@ stats_log_set_level = {
   ["stats", _this] call log_set_level;
 };
 
-
 //Set default logging level for this component
 LOG_INFO_LEVEL call stats_log_set_level;
-
 
 stats_build_params = {
   if (isNil "_this") exitWith {};
@@ -737,7 +791,6 @@ stats_build_params = {
   (_params)
 };
 
-
 /**
 * This function sets the given {@code _key}, and {@code _value} within the specified {@code _scope}
 *
@@ -752,7 +805,6 @@ stats_build_params = {
 *
 * @returns {boolean}  true on success, false on failure
 */
-
 
 /**
  * This function sets one or more key-value {@code _pair}s within the specified {@code _scope}
@@ -776,7 +828,6 @@ stats_set = {
   (["set", _this] call stats_write)
 };
 
-
 /**
 * This function pushes the given {@code _value} to the end of the array at {@code _key}, and within the specified {@code _scope}
 *
@@ -791,7 +842,6 @@ stats_set = {
 *
 * @returns {boolean}  true on success, false on failure
 */
-
 
 /**
  * This function pushes one or more values into the specified keys within the given {@code _scope}
@@ -828,7 +878,6 @@ stats_push = {
 *
 * @returns {boolean}  true on success, false on failure
 */
-
 
 /**
  * This function unshifts one or more values into the specified keys within the given {@code _scope}
@@ -871,7 +920,6 @@ stats_unshift = {
 *
 * @returns {boolean}  true on success, false on failure
 */
-
 
 /**
  * This function merges one or more values into the existing values at the specified keys within the given {@code _scope}
@@ -938,8 +986,6 @@ stats_write = {
   _result
 };
 
-
-
 /**
 * This function gets the value of the given {@code _key}, within the specified {@code _scope}
 *
@@ -992,8 +1038,6 @@ stats_get = {
   (["get", _this] call stats_read)
 };
 
-
-
 /**
 * This function pops the value at the end of the array at {@code _key}, within the specified {@code _scope}
 *
@@ -1043,7 +1087,6 @@ stats_get = {
 stats_pop = {
   (["pop", _this] call stats_read)
 };
-
 
 /**
 * This function shifts the value at the begining of the array at {@code _key}, within the specified {@code _scope}
@@ -1160,8 +1203,6 @@ stats_count = {
   (["count", _this] call stats_read)
 };
 
-
-
 /**
 * This function retrieves the names of child keys within the given {@code _scope}
 *
@@ -1239,7 +1280,6 @@ stats_count = {
 stats_keys = {
   (["keys", _this] call stats_read)
 };
-
 
 stats_read = {
   if (isNil "_this") exitWith {};
@@ -1351,9 +1391,6 @@ stats_flush = {
   _result
 };
 
-
-
-
 /**
 * This function wipes all keys within a specific scope
 *
@@ -1396,4 +1433,7 @@ stats_wipe = {
   _result
 };
 
-diag_log format["loading stats library complete"];
+/////////////////////////////////////////////////////////////////////////
+["loading stats library complete"] call WarZones_fnc_Debug;
+
+// End of File: WarZones_fnc_Functions.sqf

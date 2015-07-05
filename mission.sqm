@@ -271,7 +271,7 @@ class Mission
 						};
 						class Item6
 						{
-							value="1";
+							value="2";
 							parentCls="ModuleSector_F";
 							typeName="TaskOwner";
 						};
@@ -1937,7 +1937,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="2";
+							value="1";
 							parentCls="ModuleCurator_F";
 							typeName="Addons";
 						};
@@ -1960,7 +1960,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=7;
+		items=11;
 		class Item0
 		{
 			position[]={27500,50,29500};
@@ -2017,8 +2017,8 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="aafzoneinf";
-			expCond="time > 5";
-			expActiv="aafspawn = [""aafzoneinf"",[1,0,1],[10,2,20,6],[ ],[ ],[ ],[2,2,2,2,0]] spawn DAC_Zone";
+			expCond="time > 10";
+			expActiv="runaafzoneinf = [""aafzoneinf"",[1,0,1],[10,2,50,5],[ ],[ ],[ ],[2,2,2,2,2]] spawn DAC_Zone";
 			class Effects
 			{
 			};
@@ -2034,8 +2034,8 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="aafzonetank";
-			expCond="time > 5";
-			expActiv="aafspawn = [""aafzonetank"",[2,0,1],[5,1,25,6],[ ],[ 3,3,25,5],[ ],[2,2,2,2,0]] spawn DAC_Zone";
+			expCond="time > 10";
+			expActiv="aafspawn = [""aafzonetank"",[2,0,1],[10,2,50,5],[ ],[ 3,3,25,5],[ ],[2,2,2,1,2]] spawn DAC_Zone";
 			class Effects
 			{
 			};
@@ -2051,8 +2051,8 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="aafzonemoto";
-			expCond="time > 5";
-			expActiv="aafspawn= [""aafzonemoto"",[3,0,1],[5,1,25,6],[3,3,30,5],[ ],[ ],[2,2,2,2,0]] spawn DAC_Zone";
+			expCond="time > 10";
+			expActiv="aafspawn= [""aafzonemoto"",[3,0,1],[10,2,50,5],[3,3,30,5],[ ],[ ],[2,2,2,1,2]] spawn DAC_Zone";
 			class Effects
 			{
 			};
@@ -2068,8 +2068,76 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="aafzoneheli";
-			expCond="time > 5";
-			expActiv="aafspawn = [""aafzoneheli"",[4,0,1],[5,1,25,6],[3,3,30,5],[ ],[2,2,4],[2,2,2,2,0]] spawn DAC_Zone";
+			expCond="time > 10";
+			expActiv="aafspawn = [""aafzoneheli"",[4,0,1],[10,2,50,5],[3,3,30,5],[ ],[2,2,4],[2,2,2,1,2]] spawn DAC_Zone";
+			class Effects
+			{
+			};
+		};
+		class Item7
+		{
+			position[]={2930.0723,0,29999.957};
+			a=5;
+			b=5;
+			rectangular=1;
+			activationBy="LOGIC";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="aafzoneinfcamp";
+			expCond="time > 10";
+			expActiv="runaafzoneinfcamp = [""aafzoneinfcamp"",[1,0,1],[],[],[],[1,4,100,1,100,100,[aafzoneinf]],[2,2,2,2,2]] spawn DAC_Zone";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={2930.0723,0,30097.432};
+			a=5;
+			b=5;
+			rectangular=1;
+			activationBy="LOGIC";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="aafzonetankcamp";
+			expCond="time > 10";
+			expActiv="runaafzonetankcamp = [""aafzonetankcamp"",[2,0,1],[],[],[],[2,4,100,1,100,50,[aafzonetank]],[2,2,2,2,2]] spawn DAC_Zone";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={2931.3896,0,30198.857};
+			a=5;
+			b=5;
+			rectangular=1;
+			activationBy="LOGIC";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="aafzonemotocamp";
+			expCond="time > 10";
+			expActiv="runaafzonemotocamp = [""aafzonemotocamp"",[3,0,1],[],[],[],[2,4,100,1,100,50,[aafzonemoto]],[2,2,2,2,2]] spawn DAC_Zone";
+			class Effects
+			{
+			};
+		};
+		class Item10
+		{
+			position[]={2931.3896,0,30296.332};
+			a=5;
+			b=5;
+			rectangular=1;
+			activationBy="LOGIC";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="aafzonehelicamp";
+			expCond="time > 10";
+			expActiv="runaafzonehelicamp = [""aafzonehelicamp"",[4,0,1],[],[],[],[2,4,100,1,100,50,[aafzoneheli]],[2,2,2,2,2]] spawn DAC_Zone";
 			class Effects
 			{
 			};

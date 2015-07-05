@@ -23,7 +23,7 @@ switch (_TypNumber) do
 	case 1:
 	{
 		_Events_Unit_S =	[
-								[“{UnitsBase pushBack _x} foreach units _group"],
+								["{_x addEventHandler [""Killed"", {_this spawn AiKilled}]} forEach units _group"],
 								[],
 								[],
 								[],

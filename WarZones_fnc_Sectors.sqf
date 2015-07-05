@@ -2,13 +2,16 @@
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
 /
-/  File: WarZones_Function_CreateSectors.sqf
-/  Description: Function that reads a random Sector and Base Template, and creates Sectors and Bases for the three Sides.
+/  File: WarZones_Function_Sectors.sqf
+/  Description: Function that reads a random Sector and Base Template and creates Sectors and Bases for the three Sides.
+/				Then it activates the given DAC trigger and spawns a Reinforcements check loop.
 /
 */
+if (!isServer) exitWith {};
 
 // Load Sector Templates
-#include "WarZones_Template_Sectors.hpp"; ["Loading Sector Templates"] call WarZones_fnc_Debug;
+#include "WarZones_Template_Sectors.hpp";
+["Loading Sector Templates"] call WarZones_fnc_Debug;
 
 // Get a Random Template
 _Random_Sectors = _Templates_Sector call BIS_fnc_selectRandom;
@@ -93,42 +96,77 @@ _center_x = _center select 0;
 _center_y = _center select 1;
 
 // Create Independent Center Flagpole
-base_independent_flagpole = createVehicle ["Flag_AAF_F", [_center_x,_center_y], [], 0, "NONE"];
-base_independent_flagpole setVariable ["BIS_enableRandomization", false];
+//base_independent_flagpole = createVehicle ["Flag_AAF_F", [_center_x,_center_y], [], 0, "NONE"];
+//base_independent_flagpole setVariable ["BIS_enableRandomization", false];
 
-_location_independent = getPos base_independent_flagpole;
+location_independent = [_center_x,_center_y];
+_zonesize = _distance - 200;
+_zonesize = _zonesize / 2;
+_campsize = _zonesize / 2 / 2;
 
-// Move aafzone triggers and delete unneeded ones (DAC)
+// Max zone size = 1000
+if (_zonesize > 1000) then {
+	_zonesize = 1000;
+};
+
+// Minimum zone size = 200
+if (_zonesize < 200) then {
+	_zonesize = 200;
+};
+
+[format ["DAC Zone size: %1", _zonesize]] call WarZones_fnc_Debug;
+
+// Move aafzone triggers (DAC)
 if (Sector_Config_Area_Type == "infantry") then {
-	aafzoneinf setPos _location_independent;
-	aafzoneinf setTriggerArea [180, 180, 0, true];
 	deleteVehicle aafzonetank;
+	deleteVehicle aafzonetankcamp;
 	deleteVehicle aafzonemoto;
+	deleteVehicle aafzonemotocamp;
 	deleteVehicle aafzoneheli;
+	deleteVehicle aafzonehelicamp;
+	aafzoneinf setPos location_independent;
+	aafzoneinf setTriggerArea [_zonesize, _zonesize, 0, true];
+	aafzoneinfcamp setPos location_independent;
+	aafzoneinfcamp setTriggerArea [_campsize, _campsize, 0, true];
 };
 
 if (Sector_Config_Area_Type == "tanks") then {
-	aafzonetank setPos _location_independent;
-	aafzonetank setTriggerArea [500, 500, 0, true];
 	deleteVehicle aafzoneinf;
+	deleteVehicle aafzoneinfcamp;
 	deleteVehicle aafzonemoto;
+	deleteVehicle aafzonemotocamp;
 	deleteVehicle aafzoneheli;
+	deleteVehicle aafzonehelicamp;
+	aafzonetank setPos location_independent;
+	aafzonetank setTriggerArea [_zonesize, _zonesize, 0, true];
+	aafzonetankcamp setPos location_independent;
+	aafzonetankcamp setTriggerArea [_campsize, _campsize, 0, true];
 };
 
 if (Sector_Config_Area_Type == "motorized") then {
-	aafzonemoto setPos _location_independent;
-	aafzonemoto setTriggerArea [500, 500, 0, true];
-	deleteVehicle aafzoneinf;
 	deleteVehicle aafzonetank;
+	deleteVehicle aafzonetankcamp;
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzoneinfcamp;
 	deleteVehicle aafzoneheli;
+	deleteVehicle aafzonehelicamp;
+	aafzonemoto setPos location_independent;
+	aafzonemoto setTriggerArea [_zonesize, _zonesize, 0, true];
+	aafzonemotocamp setPos location_independent;
+	aafzonemotocamp setTriggerArea [_campsize, _campsize, 0, true];
 };
 
 if (Sector_Config_Area_Type == "helicopters") then {
-	aafzoneheli setPos _location_independent;
-	aafzoneheli setTriggerArea [1000, 500, 0, true];
-	deleteVehicle aafzoneinf;
 	deleteVehicle aafzonetank;
+	deleteVehicle aafzonetankcamp;
 	deleteVehicle aafzonemoto;
+	deleteVehicle aafzonemotocamp;
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzoneinfcamp;
+	aafzoneheli setPos location_independent;
+	aafzoneheli setTriggerArea [_zonesize, _zonesize, 0, true];
+	aafzonehelicamp setPos location_independent;
+	aafzonehelicamp setTriggerArea [_campsize, _campsize, 0, true];
 };
 
 /* ToDo: Find another way to set up bases in a triangle. With this code AAF base could be spawned on water...
@@ -137,40 +175,40 @@ if (Sector_Config_Area_Type == "helicopters") then {
 _corner = _direction + 90;
 
 // Define Independent Position
-_location_independent = [base_independent_flagpole, _distance_half, _corner] call BIS_fnc_relPos;
-[format ["Independent Position: %1", _location_independent]] call WarZones_fnc_Debug;
+location_independent = [location_independent, _distance_half, _corner] call BIS_fnc_relPos;
+[format ["Independent Position: %1", location_independent]] call WarZones_fnc_Debug;
 
 // Move the Position if it spawned on water
-_location_independent_flat = selectBestPlaces [_location_independent, 150, "(1 - sea)", 1, 1];
+location_independent_flat = selectBestPlaces [location_independent, 150, "(1 - sea)", 1, 1];
 
 // Define Independent Spawn x/y Location
-_location_independent_x = ((_location_independent_flat select 0) select 0) select 0;
-_location_independent_y = ((_location_independent_flat select 0) select 0) select 1;
-
-// Move the Flagpole to final location
-base_independent_flagpole setPos [_location_independent_x,_location_independent_y, 0];
+location_independent_x = ((location_independent_flat select 0) select 0) select 0;
+location_independent_y = ((location_independent_flat select 0) select 0) select 1;
 
 */
 
 // Modify the Sector Trigger
 sector_independent_trigger setTriggerArea [Sector_Config_Area_Size,Sector_Config_Area_Size, 0, false ];
-sector_independent_trigger setPos getPos base_independent_flagpole;
+sector_independent_trigger setPos location_independent;
 
 // Create Respawn Marker
 _marker_RespawnIndependent = ["respawn_guerrila", sector_independent_trigger] call BIS_fnc_markerToTrigger;
 _marker_RespawnIndependent setMarkerAlpha 0;
 ["Independent marker created"] call WarZones_fnc_debug;
 
+
+///////////////////////
 //// Spawn Bases
 
 // Load Base Templates
-#include "WarZones_Template_Bases.hpp"; ["Loading Base Templates"] call WarZones_fnc_Debug;
+#include "WarZones_Template_Bases.hpp";
+["Loading Base Templates"] call WarZones_fnc_Debug;
 
 // Get Compass direction (from BLUFOR to INDEPENDENT)
-_direction_BlU_IND = [base_blufor_flagpole,getPos base_independent_flagpole] call BIS_fnc_relativeDirTo;
+_direction_BlU_IND = [base_blufor_flagpole, location_independent] call BIS_fnc_relativeDirTo;
 
 // Get Compass direction (from OPFOR to INDEPENDENT)
-_direction_OPF_IND = [base_opfor_flagpole,getPos base_independent_flagpole] call BIS_fnc_relativeDirTo;
+_direction_OPF_IND = [base_opfor_flagpole, location_independent] call BIS_fnc_relativeDirTo;
 
 if (Sector_Config_Area_Type == "motorized") then {
 	// Get a Random Template
@@ -183,7 +221,7 @@ if (Sector_Config_Area_Type == "motorized") then {
 	_Base_OPFOR = [_location_opfor,_direction_OPF_IND,_Base_Template] call BIS_fnc_ObjectsMapper;
 
 	// Spawn Independent Base
-	_Base_INDEPENDENT = [_location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
+	_Base_INDEPENDENT = [location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
 };
 
 if (Sector_Config_Area_Type == "helicopters") then {
@@ -197,7 +235,7 @@ if (Sector_Config_Area_Type == "helicopters") then {
 	_Base_OPFOR = [_location_opfor,_direction_OPF_IND,_Base_Template] call BIS_fnc_ObjectsMapper;
 
 	// Spawn Independent Base
-	_Base_INDEPENDENT = [_location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
+	_Base_INDEPENDENT = [location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
 };
 
 if (Sector_Config_Area_Type == "tanks") then {
@@ -211,12 +249,14 @@ if (Sector_Config_Area_Type == "tanks") then {
 	_Base_OPFOR = [_location_opfor,_direction_OPF_IND,_Base_Template] call BIS_fnc_ObjectsMapper;
 
 	// Spawn Independent Base
-	_Base_INDEPENDENT = [_location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
+	_Base_INDEPENDENT = [location_independent,0,_Base_Template] call BIS_fnc_ObjectsMapper;
 };
 ["Sectors created"] call WarZones_fnc_Debug;
 
+
 ////////////////////////////////////////////
 // Vehicle respawn markers and restrictions
+
 
 //// NATO
 ["Creating NATO vehicle respawn markers and handlers"] call WarZones_fnc_Debug;
@@ -430,3 +470,144 @@ _csat_vehicles_air_num = 0;
 
 	sleep 0.1;
 } forEach _csat_vehicles_air;
+
+
+////////////////////////////////
+// Initiate Reinforcements Loop
+INDEPENDENT_HQ = createCenter resistance;
+UnitsReinforcements = [];
+
+[] spawn {
+	sleep 30;
+	while {true} do {
+		sleep 120;
+		_aaftickets = [resistance] call BIS_fnc_respawnTickets;
+		if (_aaftickets > 1) then {
+			_aafforcescount = {alive _x && side _x == resistance} count allUnits;
+			if (_aafforcescount < 5) then {
+				["Less then 5 AAF Base Units, starting Halo-Loop and sending the 1st Drop"] call WarZones_fnc_Debug;
+				[{[] call ReinforcementsBox;},"BIS_fnc_spawn",  true, true] call BIS_fnc_MP;
+
+				// Create 1st Paratroopers Squad
+				_group1randpos = [location_independent, random 100, random 360] call BIS_fnc_relPos;
+				_group1position = _group1randpos findEmptyPosition [1,50];
+				_paratroopers1 = [_group1position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
+
+				// Make them Halo
+				{
+					[_x, 2000, true, true, true] call COB_fnc_HALO;
+				} forEach units _paratroopers1;
+
+				// Move all units of group 1 into an array
+				{ UnitsReinforcements pushBack _x; } forEach units _paratroopers1;
+
+				// Create 2nd Paratroopers Squad
+				_group2randpos = [location_independent, random 100, random 360] call BIS_fnc_relPos;
+				_group2position = _group2randpos findEmptyPosition [1,50];
+				_paratroopers2 = [_group2position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
+
+				// Make them Halo
+				{
+					[_x, 2000, true, true, true] call COB_fnc_HALO;
+				} forEach units _paratroopers2;
+
+				// Move all units of group 2 into an array
+				{ UnitsReinforcements pushBack _x; } forEach units _paratroopers2;
+
+				{
+					_x addeventhandler ["Killed",{
+						_victim = _this select 0;
+						_killer = _this select 1;
+						[_victim,_killer] spawn AiKilled;
+					}];
+				} forEach UnitsReinforcements;
+
+				// Add Reinforcements to DAC
+				if (Sector_Config_Area_Type == "infantry") then {
+					// [UnitsReinforcements,1,[aafzoneinf],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+				};
+
+				if (Sector_Config_Area_Type == "tanks") then {
+					// [UnitsReinforcements,1,[aafzonetank],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+				};
+
+				if (Sector_Config_Area_Type == "motorized") then {
+					// [UnitsReinforcements,1,[aafzonemoto],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+				};
+
+				if (Sector_Config_Area_Type == "helicopters") then {
+					// [UnitsReinforcements,1,[aafzoneheli],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+				};
+
+				[resistance,-10] call BIS_fnc_respawnTickets;
+
+				while {true} do {
+					sleep 120;
+					_trooperscount = count UnitsReinforcements;
+					if (_trooperscount < 3) then {
+						["Started AAF Paradrop"] call WarZones_fnc_Debug;
+						[{[] call ReinforcementsBox;},"BIS_fnc_spawn",  true, true] call BIS_fnc_MP;
+
+						// Create 1st Paratroopers Squad
+						_group1randpos = [location_independent, random 100, random 360] call BIS_fnc_relPos;
+						_group1position = _group1randpos findEmptyPosition [1,50];
+						_paratroopers1 = [_group1position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
+
+						// Make them Halo
+						{
+							[_x, 2000, true, true, true] call COB_fnc_HALO;
+						} forEach units _paratroopers1;
+
+						// Move all units of group 1 into an array
+						{ UnitsReinforcements pushBack _x; } forEach units _paratroopers1;
+
+						// Create 2nd Paratroopers Squad
+						_group2randpos = [location_independent, random 100, random 360] call BIS_fnc_relPos;
+						_group2position = _group2randpos findEmptyPosition [1,50];
+						_paratroopers2 = [_group2position, resistance, (configFile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfTeam")] call BIS_fnc_spawnGroup;
+
+						// Make them Halo
+						{
+							[_x, 2000, true, true, true] call COB_fnc_HALO;
+						} forEach units _paratroopers2;
+
+						// Move all units of group 2 into an array
+						{ UnitsReinforcements pushBack _x; } forEach units _paratroopers2;
+
+						{
+							_x addeventhandler ["Killed",{
+								_victim = _this select 0;
+								_killer = _this select 1;
+								[_victim,_killer] spawn AiKilled;
+							}];
+						} forEach UnitsReinforcements;
+
+						// Add Reinforcements to DAC
+						if (Sector_Config_Area_Type == "infantry") then {
+							// [UnitsReinforcements,1,[aafzoneinf],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+						};
+
+						if (Sector_Config_Area_Type == "tanks") then {
+							// [UnitsReinforcements,1,[aafzonetank],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+						};
+
+						if (Sector_Config_Area_Type == "motorized") then {
+							// [UnitsReinforcements,1,[aafzonemoto],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+						};
+
+						if (Sector_Config_Area_Type == "helicopters") then {
+							// [UnitsReinforcements,1,[aafzoneheli],10,2,2,[0,0,0],0,false] spawn DAC_fInsertGroup;
+						};
+
+						[resistance,-10] call BIS_fnc_respawnTickets;
+					};
+				};
+			};
+		} else {
+			// Nothing
+			//["AAF Troops have been eliminated!","hint",true,true] call BIS_fnc_MP;
+		};
+	};
+};
+
+// End of File: WarZones_fnc_Sectors.sqf

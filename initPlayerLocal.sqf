@@ -1,5 +1,13 @@
-// WarZones_Initialize_Client.sqf
-/////////////////////////////////////////////////////////////////////////////////////
+/* WarZones - A dynamic Mission for Arma 3
+/
+/  For more information visit https://github.com/m1ndgames/WarZones/
+/
+/  File: initPlayerLocal.sqf
+/  Description: This init script is executed by players when the mission is started. (Before briefing screen)
+/
+*/
+if (isServer) exitWith {};
+
 if (player != player) then {
 	waitUntil {player == player};
 };
@@ -24,4 +32,4 @@ _drawmaphandler = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",
 _draw3dhandler = addMissionEventHandler ["Draw3D",{ [] call WarZones_fnc_draw3d; }];
 ["Client: Local Handler Created: Draw3D"] call WarZones_fnc_debug;
 
-// End Client Init
+// End of File: InitPlayerLocal.sqf

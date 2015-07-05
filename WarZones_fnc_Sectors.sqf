@@ -169,6 +169,39 @@ if (Sector_Config_Area_Type == "helicopters") then {
 	aafzonehelicamp setTriggerArea [_campsize, _campsize, 0, true];
 };
 
+// Move aafzone triggers and delete unneeded ones (DAC)
+if (Sector_Config_Area_Type == "infantry") then {
+	aafzoneinf setPos _location_independent;
+	aafzoneinf setTriggerArea [180, 180, 0, true];
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzonemoto;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "tanks") then {
+	aafzonetank setPos _location_independent;
+	aafzonetank setTriggerArea [500, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonemoto;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "motorized") then {
+	aafzonemoto setPos _location_independent;
+	aafzonemoto setTriggerArea [500, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzoneheli;
+};
+
+if (Sector_Config_Area_Type == "helicopters") then {
+	aafzoneheli setPos _location_independent;
+	aafzoneheli setTriggerArea [1000, 500, 0, true];
+	deleteVehicle aafzoneinf;
+	deleteVehicle aafzonetank;
+	deleteVehicle aafzonemoto;
+};
+
 /* ToDo: Find another way to set up bases in a triangle. With this code AAF base could be spawned on water...
 
 // Add a 90° corner
@@ -189,7 +222,11 @@ location_independent_y = ((location_independent_flat select 0) select 0) select 
 
 // Modify the Sector Trigger
 sector_independent_trigger setTriggerArea [Sector_Config_Area_Size,Sector_Config_Area_Size, 0, false ];
+<<<<<<< HEAD:WarZones_fnc_Sectors.sqf
 sector_independent_trigger setPos location_independent;
+=======
+sector_independent_trigger setPos getPos base_independent_flagpole;
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808:WarZones_fnc_CreateSectors.sqf
 
 // Create Respawn Marker
 _marker_RespawnIndependent = ["respawn_guerrila", sector_independent_trigger] call BIS_fnc_markerToTrigger;

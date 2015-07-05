@@ -44,14 +44,22 @@ switch (_CampTyp) do
 //-------------------------------------------------------------------------------------------------------------------------
 	case 2:
 	{
+<<<<<<< HEAD
 		_campBasic     = ["Flag_AAF_F"];
+=======
+		_campBasic     = ["NULL"];
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 		_campAmmo      = [];
 		_campStatic    = [];
 		_campAddUnit   = [];
 		_campUserObj   = [];
 		_campRandomObj = [];
 		_campWall      = [];
+<<<<<<< HEAD
 		_campObjInit   = [["{_x addEventHandler [""Killed"", {_this spawn AiKilled}]} forEach units _group"],[],[],[],[],[],[]];
+=======
+		_campObjInit   = [[],[],[],[],[],[],[]];
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 	};
 //-------------------------------------------------------------------------------------------------------------------------
 	Default {

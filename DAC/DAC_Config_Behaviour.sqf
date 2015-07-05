@@ -66,13 +66,21 @@ switch (_this select 0) do
 		_setBehav   = ["careless","safe","aware"];
 		_setSpeed   = ["limited","normal","full"];
 		_setForm    = ["line","vee","column","wedge","stag column","ech left","ech right","file","diamond"];
+<<<<<<< HEAD
 		_setFleeing = [1,200];
+=======
+		_setFleeing = [0,200];
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 		_setHeliVal = [50,100,0.7,2];
 		_setPause   = [[5,10],[5,10],[5,10],[20,30,5,5],[1,3],[0,0]];
 		_setBldgBeh = [4,50,120,600,1];
 		_setPatrol  = ["45 + (20 * (skill _leader))","(60 + (random 60)) + ((skill _leader) * 50)"];
 		_setSearch  = ["40 + ((skill _leader) * 150)","50 + ((skill _leader) * 50)"];
+<<<<<<< HEAD
 		_setSupport = [1,0];//no support for other zones //opfor arti
+=======
+		_setSupport = [0,1];//no support for other zones //opfor arti
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 		_setJoin    = 2;
 		_setEmpVeh  = [[150,100],[150,100]];
 		_setSupTime = ["5 + ((skill _unit) * (5 * DAC_AI_Level))",2,5];

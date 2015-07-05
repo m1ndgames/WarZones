@@ -1433,7 +1433,11 @@ stats_wipe = {
   _result
 };
 
+<<<<<<< HEAD:WarZones_fnc_Functions.sqf
 /////////////////////////////////////////////////////////////////////////
 ["loading stats library complete"] call WarZones_fnc_Debug;
 
 // End of File: WarZones_fnc_Functions.sqf
+=======
+diag_log format["loading stats library complete"];
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808:WarZones_fnc_DB.sqf

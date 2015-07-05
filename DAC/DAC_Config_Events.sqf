@@ -23,7 +23,11 @@ switch (_TypNumber) do
 	case 1:
 	{
 		_Events_Unit_S =	[
+<<<<<<< HEAD
 								["{_x addEventHandler [""Killed"", {_this spawn AiKilled}]} forEach units _group"],
+=======
+								[“{_x addeventhandler [“”Killed””,{_this spawn AiKilled}]} foreach units _group“],
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 								[],
 								[],
 								[],

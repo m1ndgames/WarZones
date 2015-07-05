@@ -14,7 +14,11 @@ private [
 		];
 
 			_DACTemp = ["S","V","T","A","C"];_DAC_WP_Typ = _this select 0;_DAC_WP_Nr = _this select 1;_array = [];_TempWPArray = [];
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 {
 	switch (_DAC_WP_Nr) do
@@ -31,7 +35,11 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkObjH2    	= [	30,		15,		15,		5,		30		];
 					_checkCount   	= [	200,	200,	200,	500,	1500	];
 					_checkResol   	= [	45,		36,		36,		12,		12		];
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		case 1:	{
@@ -46,11 +54,16 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkObjH2    	= [	30,		15,		15,		5,		4		];
 					_checkCount   	= [	200,	200,	200,	500,	1500	];
 					_checkResol   	= [	45,		36,		36,		12,		12		];
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		case 2:	{
 					//----------------- #Sol----#Veh----#Tan----#Air----#Camp----;
+<<<<<<< HEAD
 					_CheckRadius1 	= [	5,		5,		5,		10,		1		];
 					_CheckRadius2 	= [	12,		10,		10,		20,		2		];
 					_checkAreaH   	= [	40,		25,		25,		20,		40		];
@@ -62,6 +75,19 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkCount   	= [	500,	200,	200,	500,	1500	];
 					_checkResol   	= [	45,		36,		36,		12,		45		];
 
+=======
+					_CheckRadius1 	= [	5,		5,		5,		10,		10		];
+					_CheckRadius2 	= [	10,		10,		10,		20,		20		];
+					_checkAreaH   	= [	75,		25,		25,		20,		20		];
+					_checkMaxH    	= [	5000,	5000,	5000,	5000,	5000	];
+					_checkMinH    	= [	1,		1,		1,		1,		1		];
+					_checkNear    	= [	0,		0,		0,		50, 	100		];
+					_checkObjH1    	= [	3,	    2,  	2,  	1.5,	1.5		];
+					_checkObjH2    	= [	30,		15,		15,		5,		4		];
+					_checkCount   	= [	200,	200,	200,	500,	1500	];
+					_checkResol   	= [	45,		36,		36,		12,		12		];
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		case 3:	{
@@ -76,7 +102,11 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkObjH2    	= [	30,		10,		10,		5,		4		];
 					_checkCount   	= [	200,	200,	200,	500,	500		];
 					_checkResol   	= [	45,		36,		36,		12,		12		];
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		case 4:	{
@@ -91,7 +121,11 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkObjH2    	= [	50,		50,		5,		5,		50		];
 					_checkCount   	= [	500,	500,	500,	500,	500		];
 					_checkResol   	= [	18,		18,		18,		18,		18		];
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		case 5:	{
@@ -106,7 +140,11 @@ if((_DAC_WP_Typ < 5) && (_DAC_WP_Typ >= 0)) then
 					_checkObjH2    	= [	50,		50,		5,		5,		50		];
 					_checkCount   	= [	500,	500,	500,	500,	500		];
 					_checkResol   	= [	18,		18,		18,		18,		18		];
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 					_TempWPArray  = call compile format["DAC_WP_Pool_%1",(_DACTemp select _DAC_WP_Typ)];
 				};
 		Default {

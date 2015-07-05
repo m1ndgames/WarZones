@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* WarZones - A dynamic Mission for Arma 3
 /
 /  For more information visit https://github.com/m1ndgames/WarZones/
@@ -7,10 +8,20 @@
 /
 */
 if (isServer) exitWith {};
+=======
+// Draw3d Loop
+////////////////////////////////////////////////////////////////////
+// Get Spot Distance from Mission Parameters
+//cfg_spot_distance_team = "SpotDistance" call BIS_fnc_getParamValue;
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 
 // Define Mission Root
 _root = parsingNamespace getVariable "MISSION_ROOT";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 {
 	spot_spotted = _x;
 	spot_distance = [player, spot_spotted] call BIS_fnc_distance2D;
@@ -120,6 +131,10 @@ _root = parsingNamespace getVariable "MISSION_ROOT";
 			};
 		};
 	};
+<<<<<<< HEAD
 } forEach allUnits;
 
 // End of File: WarZones_fnc_Draw3D.sqf
+=======
+} forEach allUnits;
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808

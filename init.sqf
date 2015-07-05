@@ -35,4 +35,12 @@ if (!hasInterface) then {
 if (!hasInterface && !isDedicated) then {
 };
 
+<<<<<<< HEAD
 // End of File: init.sqf
+=======
+if(!isServer) then {waitUntil{!isNull player}};
+
+DAC_Zone = compile preprocessFile "DAC\Scripts\DAC_Init_Zone.sqf";
+DAC_Objects = compile preprocessFile "DAC\Scripts\DAC_Create_Objects.sqf";
+execVM "DAC\DAC_Config_Creator.sqf";
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808

@@ -8,19 +8,31 @@
 */
 if (!isServer) exitWith {};
 
+<<<<<<< HEAD
 ////////////////////////////
+=======
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 // Give Tickets to the Teams
 [blufor, 250] call BIS_fnc_respawnTickets;
 [opfor, 250] call BIS_fnc_respawnTickets;
 [resistance, 100] call BIS_fnc_respawnTickets;
 ["Server: Gave tickets to the Teams"] call WarZones_fnc_Debug;
 
+<<<<<<< HEAD
 /////////////////////////////////////////////
+=======
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 // Start Ticket Bleeding for the Player Teams
 [[blufor,opfor], 0.5, 3, 5] call BIS_fnc_bleedTickets;
 ["Server: Ticket Bleeding initialized"] call WarZones_fnc_Debug;
 
+<<<<<<< HEAD
 /////////////////////////////////////
+=======
+// Initialize Mission-End Check
+[] spawn WarZones_fnc_CheckWin;
+
+>>>>>>> de1852e4847c0b8b5bdc03dc95b643e36d753808
 // Initialize dynamic groups - Server
 ["Initialize"] call BIS_fnc_dynamicGroups;
 ["Initialized Dynamic Groups"] call WarZones_fnc_Debug;
